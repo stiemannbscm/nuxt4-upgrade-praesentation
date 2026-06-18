@@ -807,7 +807,7 @@ tbody tr.total td {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.72);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
@@ -819,13 +819,12 @@ tbody tr.total td {
 }
 
 .chrome-agenda__item {
-  flex: 0 0 auto;
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  padding: 8px 20px;
   margin: 0;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -837,25 +836,25 @@ tbody tr.total td {
   transition: background 0.2s ease, color 0.2s ease;
   user-select: none;
   pointer-events: auto;
-  min-width: 240px;
-  max-width: 320px;
-  padding: 10px 16px;
+  min-width: 0;
+  max-width: none;
+  padding: 12px 18px;
 }
 
 .chrome--agenda-expanded .chrome-agenda__item {
   flex: 1 1 0;
   min-width: 0;
   max-width: none;
-  padding: 6px 8px;
+  padding: 10px 12px;
 }
 
 .chrome--agenda-expanded .chrome-agenda__title {
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1.25;
 }
 
 .chrome-agenda__title {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.25;
   display: -webkit-box;

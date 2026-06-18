@@ -209,6 +209,36 @@
     return "Folie " + (index + 1);
   }
 
+  function getAgendaSections() {
+    const agendaSlide = slides[1];
+    if (!agendaSlide) return [];
+
+    return Array.from(agendaSlide.querySelectorAll(".agenda-list__title")).map(function (titleEl, index) {
+      return {
+        id: index,
+        title: titleEl.textContent.trim(),
+      };
+    });
+  }
+
+  function getSlideSectionIndex(slideIndex) {
+    if (slideIndex <= 1) return -1;
+
+    const slide = slides[slideIndex];
+    const raw = slide.dataset.agenda;
+    if (raw === undefined || raw === "") return 0;
+
+    const sectionIndex = parseInt(raw, 10);
+    return isNaN(sectionIndex) ? -1 : sectionIndex;
+  }
+
+  function getFirstSlideIndexForSection(sectionId) {
+    for (let i = 2; i < slides.length; i++) {
+      if (getSlideSectionIndex(i) === sectionId) return i;
+    }
+    return -1;
+  }
+
   function buildAgendaFromSlides() {
     if (!agendaTrack) return;
 
@@ -216,23 +246,24 @@
     agendaItems = [];
     navSlideIndices = [];
 
-    slides.forEach(function (slide, index) {
-      if (index === 0) return;
+    getAgendaSections().forEach(function (section) {
+      const slideIndex = getFirstSlideIndexForSection(section.id);
+      if (slideIndex < 0) return;
 
       const button = document.createElement("button");
       button.type = "button";
       button.className = "chrome-agenda__item";
-      button.dataset.slide = String(index);
+      button.dataset.slide = String(slideIndex);
 
       const title = document.createElement("span");
       title.className = "chrome-agenda__title";
-      title.textContent = getSlideTitle(slide, index);
+      title.textContent = section.title;
       button.appendChild(title);
 
       button.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        updateSlide(index);
+        updateSlide(slideIndex);
         button.blur();
       });
       button.addEventListener("pointerdown", function (e) {
@@ -241,12 +272,12 @@
 
       agendaTrack.appendChild(button);
       agendaItems.push(button);
-      navSlideIndices.push(index);
+      navSlideIndices.push(slideIndex);
     });
   }
 
   function findAgendaItemIndex(slideIndex) {
-    return navSlideIndices.indexOf(slideIndex);
+    return getSlideSectionIndex(slideIndex);
   }
 
   function isLastSlide(index) {
