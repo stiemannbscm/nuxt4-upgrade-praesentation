@@ -1,6 +1,5 @@
 :root {
   --bc-blue: #0099ff;
-  --bc-blue-dark: #0077cc;
   --bc-navy: #0a2540;
   --font-sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
@@ -45,12 +44,12 @@ body {
 
 .presenter-timer {
   flex-shrink: 0;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
   color: #fff;
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(0, 153, 255, 0.35);
@@ -74,7 +73,7 @@ body {
 .presenter-main {
   flex: 1;
   overflow: auto;
-  padding: 20px 24px 24px;
+  padding: 20px 24px 28px;
 }
 
 .presenter-notes__body {
@@ -87,58 +86,4 @@ body {
 .presenter-notes__body.is-empty {
   color: #5a6b7d;
   font-style: italic;
-}
-
-.presenter-nav {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 10px;
-  padding: 16px 24px 20px;
-  background: #fff;
-  border-top: 1px solid #d8e2ec;
-}
-
-.presenter-nav button {
-  padding: 14px 16px;
-  border: none;
-  border-radius: 8px;
-  font: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.presenter-nav button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-#prevBtn {
-  background: #e8edf2;
-  color: #1a2332;
-}
-
-#prevBtn:hover:not(:disabled) {
-  background: #dce4ec;
-}
-
-#fullscreenBtn {
-  background: var(--bc-navy);
-  color: #fff;
-  min-width: 120px;
-}
-
-#fullscreenBtn:hover {
-  background: #123a5c;
-}
-
-#nextBtn {
-  background: var(--bc-blue);
-  color: #fff;
-}
-
-#nextBtn:hover:not(:disabled) {
-  background: var(--bc-blue-dark);
 }

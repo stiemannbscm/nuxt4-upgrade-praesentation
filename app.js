@@ -16,8 +16,6 @@
   const help = document.getElementById("help");
   const presentation = document.getElementById("presentation");
   const chrome = document.querySelector(".chrome");
-  const presentationTimer = document.getElementById("presentationTimer");
-  const presentationTimerValue = document.getElementById("presentationTimerValue");
 
   if (!slides.length) return;
 
@@ -87,7 +85,7 @@
     }
 
     const width = 560;
-    const height = 820;
+    const height = 720;
     const left = Math.max(0, window.screen.availWidth - width - 24);
     const top = 24;
 
@@ -228,11 +226,6 @@
   }
 
   function renderTimer() {
-    const text = formatTimer(getTimerDisplayMs());
-    if (presentationTimerValue) {
-      presentationTimerValue.textContent = text;
-      presentationTimerValue.setAttribute("datetime", "PT" + Math.floor(getTimerDisplayMs() / 1000) + "S");
-    }
     syncPresenterTimer();
   }
 
@@ -267,7 +260,6 @@
     timerElapsedMs = 0;
     timerFrozen = false;
     timerRunningSince = null;
-    if (presentationTimer) presentationTimer.classList.remove("is-frozen");
     renderTimer();
   }
 
@@ -286,28 +278,19 @@
   }
 
   function updatePresentationTimer(index) {
-    if (!presentationTimer) return;
-
     if (index === 0) {
-      presentationTimer.hidden = true;
-      presentationTimer.setAttribute("aria-hidden", "true");
       resetTimer();
       return;
     }
 
-    presentationTimer.hidden = false;
-    presentationTimer.setAttribute("aria-hidden", "false");
-
     if (isLastSlide(index)) {
       pauseTimer();
       timerFrozen = true;
-      presentationTimer.classList.add("is-frozen");
       renderTimer();
       return;
     }
 
     timerFrozen = false;
-    presentationTimer.classList.remove("is-frozen");
     resumeTimer();
   }
 
