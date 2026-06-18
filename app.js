@@ -22,7 +22,6 @@
   if (!slides.length) return;
 
   let current = 0;
-  let notesVisible = false;
   let agendaItems = [];
   let navSlideIndices = [];
   let presenterWindow = null;
@@ -429,11 +428,6 @@
     if (current > 0) updateSlide(current - 1);
   }
 
-  function toggleNotes() {
-    notesVisible = !notesVisible;
-    if (notesPanel) notesPanel.hidden = !notesVisible;
-  }
-
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(function () {});
@@ -487,7 +481,10 @@
         break;
       case "n":
       case "N":
-        toggleNotes();
+        e.preventDefault();
+        if (!openPresenterWindow() && openPresenterBtn) {
+          openPresenterBtn.hidden = false;
+        }
         break;
       case "f":
       case "F":
