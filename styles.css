@@ -298,9 +298,9 @@ code {
 .agenda-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px 56px;
+  gap: 12px 64px;
   list-style: none;
-  padding: 4px 0 0;
+  padding: 16px 0 0;
   counter-reset: agenda;
 }
 
@@ -308,12 +308,9 @@ code {
   counter-increment: agenda;
   display: flex;
   align-items: flex-start;
-  gap: 18px;
-  padding: 18px 20px;
-  border-bottom: none;
-  background: var(--bc-gray-100);
-  border-radius: 12px;
-  border-left: 4px solid var(--bc-blue);
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bc-gray-200);
 }
 
 .agenda-list li::before {
@@ -328,14 +325,15 @@ code {
 .agenda-list__text {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
+  flex: 1;
 }
 
 .agenda-list__title {
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--bc-navy);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--bc-gray-900);
   line-height: 1.25;
 }
 
@@ -344,6 +342,7 @@ code {
   font-weight: 400;
   color: var(--bc-gray-600);
   line-height: 1.35;
+  padding-left: 16px;
 }
 
 /* Columns */
