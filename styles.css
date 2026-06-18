@@ -773,6 +773,32 @@ tbody tr.total td {
   font-size: 14px;
 }
 
+.presenter-open-btn {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--bc-blue);
+  color: var(--bc-white);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.presenter-open-btn:hover {
+  background: var(--bc-blue-dark);
+}
+
+.presenter-open-btn[hidden] {
+  display: none;
+}
+
 /* Full HD native – keine Skalierung nötig */
 @media (width: 1920px) and (height: 1080px) {
   #stage { box-shadow: none; }

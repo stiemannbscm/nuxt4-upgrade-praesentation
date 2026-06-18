@@ -23,6 +23,119 @@
   let notesVisible = false;
   let agendaItems = [];
   let navSlideIndices = [];
+  let presenterWindow = null;
+  let openPresenterBtn = null;
+
+  function isPresenterPopup() {
+    return window.name === "presenter-notes";
+  }
+
+  function getSlidesCatalog() {
+    return slides.map(function (slide, index) {
+      return {
+        index: index,
+        title: getSlideTitle(slide, index),
+      };
+    });
+  }
+
+  function syncPresenterWindow(index) {
+    if (!presenterWindow || presenterWindow.closed) return;
+
+    const slide = slides[index];
+    const nextSlide = index < slides.length - 1 ? slides[index + 1] : null;
+
+    presenterWindow.postMessage(
+      {
+        type: "slide-update",
+        index: index,
+        total: slides.length,
+        title: getSlideTitle(slide, index),
+        note: slide.dataset.note || "",
+        nextTitle: nextSlide ? getSlideTitle(nextSlide, index + 1) : null,
+      },
+      window.location.origin
+    );
+  }
+
+  function sendPresenterInit() {
+    if (!presenterWindow || presenterWindow.closed) return;
+
+    presenterWindow.postMessage(
+      {
+        type: "init",
+        slides: getSlidesCatalog(),
+      },
+      window.location.origin
+    );
+    syncPresenterWindow(current);
+  }
+
+  function openPresenterWindow() {
+    if (isPresenterPopup()) return;
+
+    if (presenterWindow && !presenterWindow.closed) {
+      presenterWindow.focus();
+      sendPresenterInit();
+      return true;
+    }
+
+    const width = 560;
+    const height = 820;
+    const left = Math.max(0, window.screen.availWidth - width - 24);
+    const top = 24;
+
+    presenterWindow = window.open(
+      "presenter.html",
+      "presenter-notes",
+      "popup=yes,width=" + width + ",height=" + height + ",left=" + left + ",top=" + top
+    );
+
+    if (!presenterWindow) {
+      if (openPresenterBtn) openPresenterBtn.hidden = false;
+      return false;
+    }
+
+    if (openPresenterBtn) openPresenterBtn.hidden = true;
+    return true;
+  }
+
+  function createPresenterFallbackButton() {
+    if (isPresenterPopup()) return;
+
+    openPresenterBtn = document.createElement("button");
+    openPresenterBtn.type = "button";
+    openPresenterBtn.id = "openPresenterBtn";
+    openPresenterBtn.className = "presenter-open-btn";
+    openPresenterBtn.hidden = true;
+    openPresenterBtn.textContent = "Presenter öffnen (Notizen & Steuerung)";
+    openPresenterBtn.addEventListener("click", function () {
+      openPresenterWindow();
+    });
+    document.body.appendChild(openPresenterBtn);
+  }
+
+  function handlePresenterMessage(event) {
+    if (event.origin !== window.location.origin) return;
+    if (!presenterWindow || event.source !== presenterWindow) return;
+
+    switch (event.data.type) {
+      case "presenter-ready":
+        sendPresenterInit();
+        break;
+      case "nav-next":
+        next();
+        break;
+      case "nav-prev":
+        prev();
+        break;
+      case "nav-goto":
+        if (typeof event.data.index === "number") updateSlide(event.data.index);
+        break;
+      default:
+        break;
+    }
+  }
 
   function fitStage() {
     if (!viewport || !stage) return;
@@ -197,6 +310,7 @@
     updateAgendaNav(index);
     updateChrome(index);
     updateSlideCounter(index);
+    syncPresenterWindow(index);
   }
 
   function next() {
@@ -221,6 +335,14 @@
   }
 
   buildAgendaFromSlides();
+  createPresenterFallbackButton();
+  window.addEventListener("message", handlePresenterMessage);
+
+  window.addEventListener("beforeunload", function () {
+    if (presenterWindow && !presenterWindow.closed) {
+      presenterWindow.close();
+    }
+  });
 
   if (agendaTrack) {
     agendaTrack.addEventListener("scroll", updateAgendaFade, { passive: true });
@@ -294,4 +416,12 @@
 
   fitStage();
   updateSlide(0);
+
+  if (!isPresenterPopup()) {
+    window.setTimeout(function () {
+      if (!openPresenterWindow() && openPresenterBtn) {
+        openPresenterBtn.hidden = false;
+      }
+    }, 400);
+  }
 })();

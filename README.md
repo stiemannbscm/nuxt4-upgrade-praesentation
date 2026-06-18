@@ -15,7 +15,17 @@ Nach Aktivierung von GitHub Pages:
 | `index.html` | Folieninhalt (Markup) |
 | `styles.css` | Layout und Typografie |
 | `app.js` | Navigation, Agenda-Leiste, Sprechernotizen |
-| `assets/` | Logos und Folienbilder (PNG) |
+| `presenter.html` | Presenter-Ansicht (Notizen, Hilfe, Steuerung) |
+| `presenter.css` / `presenter.js` | Styling und Logik für das Presenter-Fenster |
+
+## Zwei-Bildschirm-Modus
+
+Beim Öffnen von `index.html` startet automatisch ein **Presenter-Fenster** mit Sprechernotizen, Kurzhilfe und Navigation. Empfohlen:
+
+1. Präsentation auf Beamer/Zweitmonitor → **F** für Vollbild
+2. Presenter-Fenster auf Laptop → Fokus hier lassen und mit **← / →** steuern
+
+Falls der Browser Pop-ups blockiert: Button **„Presenter öffnen“** oben in der Präsentation klicken.
 
 ## Bedienung
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presenter – Sprechernotizen</title>
+  <link rel="stylesheet" href="presenter.css">
+</head>
+<body>
+  <header class="presenter-header">
+    <p class="presenter-header__label">Presenter-Ansicht</p>
+    <p class="presenter-header__meta" id="slideMeta">Folie — / —</p>
+    <h1 class="presenter-header__title" id="slideTitle">Warte auf Präsentation …</h1>
+  </header>
+
+  <p class="presenter-status" id="presenterStatus">Verbinde …</p>
+
+  <main class="presenter-main">
+    <section class="presenter-notes">
+      <h2>Sprechernotiz</h2>
+      <p id="notesText">Bitte Präsentation im anderen Fenster öffnen.</p>
+    </section>
+
+    <section class="presenter-next">
+      <h2>Vorschau</h2>
+      <p id="nextTitle">—</p>
+    </section>
+
+    <div class="presenter-jump">
+      <label for="slideJump">Direkt zu Folie</label>
+      <select id="slideJump" aria-label="Folie auswählen"></select>
+    </div>
+
+    <section class="presenter-help">
+      <h2>Steuerung</h2>
+      <ul>
+        <li><kbd>→</kbd> <kbd>Leertaste</kbd> Nächste Folie</li>
+        <li><kbd>←</kbd> Vorherige Folie</li>
+        <li><kbd>Pos 1</kbd> Erste Folie · <kbd>Ende</kbd> Letzte Folie</li>
+        <li>Im Präsentationsfenster: <kbd>F</kbd> Vollbild auf Beamer</li>
+        <li>Fokus auf dieses Fenster lassen, um von hier zu steuern</li>
+      </ul>
+    </section>
+  </main>
+
+  <nav class="presenter-nav" aria-label="Foliennavigation">
+    <button type="button" id="prevBtn">← Zurück</button>
+    <button type="button" id="nextBtn">Weiter →</button>
+  </nav>
+
+  <script src="presenter.js"></script>
+</body>
+</html>
