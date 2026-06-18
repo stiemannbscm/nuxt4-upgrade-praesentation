@@ -17,6 +17,7 @@ Nach Aktivierung von GitHub Pages:
 | `app.js` | Navigation, Agenda-Leiste, Sprechernotizen |
 | `presenter.html` | Presenter-Ansicht (Notizen, Hilfe, Steuerung) |
 | `presenter.css` / `presenter.js` | Styling und Logik für das Presenter-Fenster |
+| `assets/` | Logos und Folienbilder (PNG) |
 
 ## Zwei-Bildschirm-Modus
 
