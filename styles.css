@@ -542,27 +542,8 @@ tbody tr.total td {
   margin: 0;
 }
 
-.intro-hero__facts {
-  list-style: none;
-  padding: 0;
+.intro-hero__block ul {
   margin: 2px 0 0;
-  font-size: 24px;
-  line-height: 1.4;
-  color: var(--bc-gray-900);
-}
-
-.intro-hero__facts li {
-  margin-bottom: 8px;
-}
-
-.intro-hero__facts li:last-child {
-  margin-bottom: 0;
-}
-
-.intro-hero__facts li::before {
-  content: "▸ ";
-  color: var(--bc-blue);
-  font-weight: 700;
 }
 
 .intro-hero__block + .intro-hero__block {
