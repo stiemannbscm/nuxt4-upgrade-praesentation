@@ -55,9 +55,18 @@
         title: getSlideTitle(slide, index),
         note: slide.dataset.note || "",
         nextTitle: nextSlide ? getSlideTitle(nextSlide, index + 1) : null,
+        timer: getTimerPayload(),
       },
       window.location.origin
     );
+  }
+
+  function getTimerPayload() {
+    return {
+      display: formatTimer(getTimerDisplayMs()),
+      hidden: current === 0,
+      frozen: timerFrozen,
+    };
   }
 
   function sendPresenterInit() {
@@ -84,7 +93,7 @@
     }
 
     const width = 560;
-    const height = 920;
+    const height = 820;
     const left = Math.max(0, window.screen.availWidth - width - 24);
     const top = 24;
 
@@ -100,6 +109,13 @@
     }
 
     if (openPresenterBtn) openPresenterBtn.hidden = true;
+
+    window.setTimeout(function () {
+      if (presenterWindow && !presenterWindow.closed) {
+        sendPresenterInit();
+      }
+    }, 300);
+
     return true;
   }
 
@@ -119,8 +135,7 @@
   }
 
   function handlePresenterMessage(event) {
-    if (event.origin !== window.location.origin) return;
-    if (!presenterWindow || event.source !== presenterWindow) return;
+    if (!isPresenterSource(event)) return;
 
     switch (event.data.type) {
       case "presenter-ready":
@@ -266,14 +281,18 @@
     if (!presenterWindow || presenterWindow.closed) return;
 
     presenterWindow.postMessage(
-      {
-        type: "timer-update",
-        display: formatTimer(getTimerDisplayMs()),
-        hidden: current === 0,
-        frozen: timerFrozen,
-      },
+      Object.assign({ type: "timer-update" }, getTimerPayload()),
       window.location.origin
     );
+  }
+
+  function isPresenterSource(event) {
+    if (event.origin !== window.location.origin) return false;
+    if (!event.source || event.source === window) return false;
+    if (!presenterWindow || presenterWindow.closed || event.source !== presenterWindow) {
+      presenterWindow = event.source;
+    }
+    return true;
   }
 
   function updatePresentationTimer(index) {
