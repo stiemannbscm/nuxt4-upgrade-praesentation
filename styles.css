@@ -165,7 +165,7 @@ html, body {
   left: var(--pad-x);
   right: var(--pad-x);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.42);
 }
