@@ -500,11 +500,11 @@ tbody tr.total td {
 .intro-hero__content {
   position: relative;
   z-index: 2;
-  max-width: 62%;
+  max-width: 56%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 28px;
+  gap: 24px;
   min-height: 100%;
   padding-right: var(--pad-x);
   padding-bottom: var(--pad-y);
@@ -518,28 +518,30 @@ tbody tr.total td {
 
 .intro-hero__profile {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro-hero__profile-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
 .intro-hero__photo {
-  width: 152px;
-  height: 196px;
+  width: 76px;
+  height: 76px;
   object-fit: cover;
-  object-position: center 10%;
-  border-radius: 14px;
+  object-position: center 12%;
+  border-radius: 50%;
   flex-shrink: 0;
-  border: 3px solid var(--bc-white);
-  box-shadow: 0 8px 28px rgba(12, 46, 76, 0.14);
+  border: 2px solid var(--bc-white);
+  box-shadow: 0 4px 14px rgba(12, 46, 76, 0.12);
 }
 
-.intro-hero__profile-text {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-top: 4px;
+.intro-hero__profile .compact {
+  margin: 0;
+  padding-left: 32px;
 }
 
 .intro-hero__label {
@@ -552,7 +554,7 @@ tbody tr.total td {
 }
 
 .intro-hero__name {
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 700;
   color: var(--bc-navy);
   line-height: 1.1;
