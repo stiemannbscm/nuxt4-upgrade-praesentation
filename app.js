@@ -13,7 +13,6 @@
   const agendaTrack = document.getElementById("chromeAgendaTrack");
   const notesPanel = document.getElementById("speakerNotes");
   const notesText = document.getElementById("notesText");
-  const help = document.getElementById("help");
   const presentation = document.getElementById("presentation");
   const chrome = document.querySelector(".chrome");
 
@@ -85,7 +84,7 @@
     }
 
     const width = 560;
-    const height = 720;
+    const height = 820;
     const left = Math.max(0, window.screen.availWidth - width - 24);
     const top = 24;
 
@@ -487,12 +486,6 @@
       if (x < 0.2) prev();
       else if (x > 0.8) next();
     });
-  }
-
-  if (help) {
-    setTimeout(function () {
-      help.classList.add("hidden");
-    }, 6000);
   }
 
   window.addEventListener("resize", function () {

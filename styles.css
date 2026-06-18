@@ -749,31 +749,6 @@ tbody tr.total td {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.help {
-  position: absolute;
-  top: 16px;
-  left: 24px;
-  right: auto;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.35);
-  z-index: 50;
-  opacity: 1;
-  transition: opacity 0.5s;
-  pointer-events: none;
-}
-
-.help.hidden { opacity: 0; }
-
-.help kbd {
-  display: inline-block;
-  padding: 3px 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  margin: 0 3px;
-  font-family: inherit;
-  font-size: 14px;
-}
-
 .presenter-open-btn {
   position: fixed;
   top: 16px;
@@ -808,7 +783,7 @@ tbody tr.total td {
 @media print {
   #viewport { display: block; }
   #stage { transform: none !important; width: 100%; height: auto; box-shadow: none; }
-  .chrome, .speaker-notes, .help { display: none !important; }
+  .chrome, .speaker-notes { display: none !important; }
   .slide {
     position: relative;
     opacity: 1 !important;
