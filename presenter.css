@@ -89,6 +89,31 @@ body {
   font-style: italic;
 }
 
+.presenter-jump {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.presenter-jump label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bc-blue);
+  font-weight: 600;
+}
+
+.presenter-jump select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 15px;
+  border: 1px solid #c5d3e0;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .presenter-nav {
   flex-shrink: 0;
   display: grid;

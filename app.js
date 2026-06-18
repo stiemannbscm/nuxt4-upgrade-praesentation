@@ -93,7 +93,7 @@
     }
 
     const width = 560;
-    const height = 820;
+    const height = 860;
     const left = Math.max(0, window.screen.availWidth - width - 24);
     const top = 24;
 
@@ -135,7 +135,12 @@
   }
 
   function handlePresenterMessage(event) {
-    if (!isPresenterSource(event)) return;
+    if (event.origin !== window.location.origin) return;
+    if (!event.data || !event.data.type) return;
+
+    if (event.source && event.source !== window) {
+      presenterWindow = event.source;
+    }
 
     switch (event.data.type) {
       case "presenter-ready":
@@ -284,15 +289,6 @@
       Object.assign({ type: "timer-update" }, getTimerPayload()),
       window.location.origin
     );
-  }
-
-  function isPresenterSource(event) {
-    if (event.origin !== window.location.origin) return false;
-    if (!event.source || event.source === window) return false;
-    if (!presenterWindow || presenterWindow.closed || event.source !== presenterWindow) {
-      presenterWindow = event.source;
-    }
-    return true;
   }
 
   function updatePresentationTimer(index) {

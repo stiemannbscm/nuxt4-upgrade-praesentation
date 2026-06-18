@@ -4,6 +4,7 @@
   const metaEl = document.getElementById("slideMeta");
   const titleEl = document.getElementById("slideTitle");
   const notesEl = document.getElementById("notesText");
+  const jumpSelect = document.getElementById("slideJump");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const fullscreenBtn = document.getElementById("fullscreenBtn");
@@ -13,9 +14,15 @@
   let current = 0;
   const openerOrigin = window.location.origin;
 
+  function focusPresenter() {
+    window.focus();
+    if (document.body) document.body.focus();
+  }
+
   function send(type, payload) {
-    if (!window.opener || window.opener.closed) return;
+    if (!window.opener || window.opener.closed) return false;
     window.opener.postMessage(Object.assign({ type: type }, payload || {}), openerOrigin);
+    return true;
   }
 
   function formatNote(note) {
@@ -23,6 +30,18 @@
       .replace(/&#10;/g, "\n")
       .replace(/\r\n/g, "\n")
       .trim();
+  }
+
+  function fillJumpList(slides) {
+    if (!jumpSelect) return;
+    jumpSelect.innerHTML = "";
+    slides.forEach(function (slide) {
+      const option = document.createElement("option");
+      option.value = String(slide.index);
+      option.textContent = (slide.index + 1) + ". " + slide.title;
+      jumpSelect.appendChild(option);
+    });
+    jumpSelect.value = String(current);
   }
 
   function updateView(data) {
@@ -36,6 +55,10 @@
     if (notesEl) {
       notesEl.textContent = note || "Keine Sprechernotiz für diese Folie.";
       notesEl.classList.toggle("is-empty", !note);
+    }
+
+    if (jumpSelect && jumpSelect.value !== String(current)) {
+      jumpSelect.value = String(current);
     }
 
     if (prevBtn) prevBtn.disabled = current <= 0;
@@ -64,57 +87,89 @@
   window.addEventListener("message", function (e) {
     if (e.origin !== window.location.origin) return;
 
-    if (e.data.type === "slide-update") {
-      updateView(e.data);
-    }
-
-    if (e.data.type === "timer-update") {
-      updateTimer(e.data);
-    }
-  });
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      send("nav-prev");
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      send("nav-next");
-    });
-  }
-
-  if (fullscreenBtn) {
-    fullscreenBtn.addEventListener("click", function () {
-      send("nav-fullscreen");
-    });
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.target.matches("input, textarea, button")) return;
-
-    switch (e.key) {
-      case "ArrowRight":
-      case " ":
-      case "PageDown":
-        e.preventDefault();
-        send("nav-next");
+    switch (e.data.type) {
+      case "init":
+        fillJumpList(e.data.slides || []);
         break;
-      case "ArrowLeft":
-      case "PageUp":
-        e.preventDefault();
-        send("nav-prev");
+      case "slide-update":
+        updateView(e.data);
         break;
-      case "f":
-      case "F":
-        e.preventDefault();
-        send("nav-fullscreen");
+      case "timer-update":
+        updateTimer(e.data);
         break;
       default:
         break;
     }
   });
+
+  function nav(type, payload) {
+    send(type, payload);
+    focusPresenter();
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      nav("nav-prev");
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      nav("nav-next");
+    });
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener("click", function () {
+      nav("nav-fullscreen");
+    });
+  }
+
+  if (jumpSelect) {
+    jumpSelect.addEventListener("change", function () {
+      nav("nav-goto", { index: parseInt(jumpSelect.value, 10) });
+    });
+  }
+
+  window.addEventListener("keydown", function (e) {
+    if (e.target.matches("select, input, textarea")) return;
+    if (e.key === " " && e.target.matches("button")) return;
+
+    switch (e.key) {
+      case "ArrowRight":
+      case "PageDown":
+        e.preventDefault();
+        nav("nav-next");
+        break;
+      case "ArrowLeft":
+      case "PageUp":
+        e.preventDefault();
+        nav("nav-prev");
+        break;
+      case " ":
+        e.preventDefault();
+        nav("nav-next");
+        break;
+      case "Home":
+        e.preventDefault();
+        nav("nav-goto", { index: 0 });
+        break;
+      case "End":
+        e.preventDefault();
+        nav("nav-goto", { index: total - 1 });
+        break;
+      case "f":
+      case "F":
+        e.preventDefault();
+        nav("nav-fullscreen");
+        break;
+      default:
+        break;
+    }
+  });
+
+  document.body.setAttribute("tabindex", "-1");
+  focusPresenter();
 
   if (window.opener && !window.opener.closed) {
     window.opener.postMessage({ type: "presenter-ready" }, openerOrigin);
