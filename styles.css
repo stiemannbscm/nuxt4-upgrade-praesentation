@@ -452,15 +452,13 @@ tbody tr.total td {
 
 .intro-hero__map-layer {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  max-height: 92%;
-  max-width: 68%;
+  overflow: visible;
 }
 
 .intro-hero__map {
@@ -473,6 +471,8 @@ tbody tr.total td {
   object-position: right bottom;
   mix-blend-mode: screen;
   user-select: none;
+  transform: scale(1.5);
+  transform-origin: right bottom;
 }
 
 .intro-hero__content {
