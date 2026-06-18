@@ -12,9 +12,10 @@ Nach Aktivierung von GitHub Pages:
 
 | Datei | Inhalt |
 |-------|--------|
-| `index.html` | Folieninhalt (Logos als eingebettete Bilder) |
+| `index.html` | Folieninhalt (Markup) |
 | `styles.css` | Layout und Typografie |
 | `app.js` | Navigation, Agenda-Leiste, Sprechernotizen |
+| `assets/` | Logos und Folienbilder (PNG) |
 
 ## Bedienung
 
@@ -40,7 +41,7 @@ Die Quelle liegt im lokalen Doku-Projekt. Nach Änderungen:
 cd /pfad/zum/Doku
 python3 build_praesentation.py
 cd praesentation
-git add index.html styles.css app.js
+git add index.html styles.css app.js assets/
 git commit -m "Update presentation"
 git push
 ```
