@@ -749,10 +749,43 @@ tbody tr.total td {
   color: rgba(255, 255, 255, 0.92);
 }
 
+.presentation-timer {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(10, 37, 64, 0.92);
+  border: 1px solid rgba(0, 153, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.28);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.presentation-timer[hidden] {
+  display: none;
+}
+
+.presentation-timer.is-frozen {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .help {
   position: absolute;
   top: 16px;
-  right: 24px;
+  left: 24px;
+  right: auto;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.35);
   z-index: 50;
@@ -807,7 +840,7 @@ tbody tr.total td {
 @media print {
   #viewport { display: block; }
   #stage { transform: none !important; width: 100%; height: auto; box-shadow: none; }
-  .chrome, .speaker-notes, .help { display: none !important; }
+  .chrome, .speaker-notes, .help, .presentation-timer { display: none !important; }
   .slide {
     position: relative;
     opacity: 1 !important;

@@ -16,6 +16,8 @@
   const help = document.getElementById("help");
   const presentation = document.getElementById("presentation");
   const chrome = document.querySelector(".chrome");
+  const presentationTimer = document.getElementById("presentationTimer");
+  const presentationTimerValue = document.getElementById("presentationTimerValue");
 
   if (!slides.length) return;
 
@@ -25,6 +27,10 @@
   let navSlideIndices = [];
   let presenterWindow = null;
   let openPresenterBtn = null;
+  let timerElapsedMs = 0;
+  let timerRunningSince = null;
+  let timerTickId = null;
+  let timerFrozen = false;
 
   function isPresenterPopup() {
     return window.name === "presenter-notes";
@@ -69,6 +75,7 @@
       window.location.origin
     );
     syncPresenterWindow(current);
+    syncPresenterTimer();
   }
 
   function openPresenterWindow() {
@@ -108,7 +115,7 @@
     openPresenterBtn.id = "openPresenterBtn";
     openPresenterBtn.className = "presenter-open-btn";
     openPresenterBtn.hidden = true;
-    openPresenterBtn.textContent = "Presenter öffnen (Notizen & Steuerung)";
+    openPresenterBtn.textContent = "Presenter öffnen";
     openPresenterBtn.addEventListener("click", function () {
       openPresenterWindow();
     });
@@ -131,6 +138,9 @@
         break;
       case "nav-goto":
         if (typeof event.data.index === "number") updateSlide(event.data.index);
+        break;
+      case "nav-fullscreen":
+        toggleFullscreen();
         break;
       default:
         break;
@@ -204,6 +214,102 @@
 
   function isLastSlide(index) {
     return index === slides.length - 1;
+  }
+
+  function formatTimer(ms) {
+    const totalSec = Math.max(0, Math.floor(ms / 1000));
+    const min = Math.floor(totalSec / 60);
+    const sec = totalSec % 60;
+    return String(min).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
+  }
+
+  function getTimerDisplayMs() {
+    if (timerRunningSince === null) return timerElapsedMs;
+    return timerElapsedMs + (Date.now() - timerRunningSince);
+  }
+
+  function renderTimer() {
+    const text = formatTimer(getTimerDisplayMs());
+    if (presentationTimerValue) {
+      presentationTimerValue.textContent = text;
+      presentationTimerValue.setAttribute("datetime", "PT" + Math.floor(getTimerDisplayMs() / 1000) + "S");
+    }
+    syncPresenterTimer();
+  }
+
+  function startTimerTick() {
+    if (timerTickId !== null) return;
+    timerTickId = window.setInterval(renderTimer, 1000);
+    renderTimer();
+  }
+
+  function stopTimerTick() {
+    if (timerTickId === null) return;
+    window.clearInterval(timerTickId);
+    timerTickId = null;
+  }
+
+  function pauseTimer() {
+    if (timerRunningSince !== null) {
+      timerElapsedMs += Date.now() - timerRunningSince;
+      timerRunningSince = null;
+    }
+    stopTimerTick();
+  }
+
+  function resumeTimer() {
+    if (timerFrozen || timerRunningSince !== null) return;
+    timerRunningSince = Date.now();
+    startTimerTick();
+  }
+
+  function resetTimer() {
+    pauseTimer();
+    timerElapsedMs = 0;
+    timerFrozen = false;
+    timerRunningSince = null;
+    if (presentationTimer) presentationTimer.classList.remove("is-frozen");
+    renderTimer();
+  }
+
+  function syncPresenterTimer() {
+    if (!presenterWindow || presenterWindow.closed) return;
+
+    presenterWindow.postMessage(
+      {
+        type: "timer-update",
+        display: formatTimer(getTimerDisplayMs()),
+        hidden: current === 0,
+        frozen: timerFrozen,
+      },
+      window.location.origin
+    );
+  }
+
+  function updatePresentationTimer(index) {
+    if (!presentationTimer) return;
+
+    if (index === 0) {
+      presentationTimer.hidden = true;
+      presentationTimer.setAttribute("aria-hidden", "true");
+      resetTimer();
+      return;
+    }
+
+    presentationTimer.hidden = false;
+    presentationTimer.setAttribute("aria-hidden", "false");
+
+    if (isLastSlide(index)) {
+      pauseTimer();
+      timerFrozen = true;
+      presentationTimer.classList.add("is-frozen");
+      renderTimer();
+      return;
+    }
+
+    timerFrozen = false;
+    presentationTimer.classList.remove("is-frozen");
+    resumeTimer();
   }
 
   function updateAgendaFade() {
@@ -306,10 +412,12 @@
     });
 
     current = index;
-    if (notesText) notesText.textContent = slides[index].dataset.note || "";
+    const note = slides[index].dataset.note || "";
+    if (notesText) notesText.textContent = note.replace(/&#10;/g, "\n");
     updateAgendaNav(index);
     updateChrome(index);
     updateSlideCounter(index);
+    updatePresentationTimer(index);
     syncPresenterWindow(index);
   }
 
