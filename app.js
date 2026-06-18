@@ -114,7 +114,7 @@
     }
 
     const width = 560;
-    const height = 860;
+    const height = 920;
     const left = Math.max(0, window.screen.availWidth - width - 24);
     const top = 24;
 

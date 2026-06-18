@@ -9,10 +9,16 @@
   const nextBtn = document.getElementById("nextBtn");
   const fullscreenBtn = document.getElementById("fullscreenBtn");
   const presenterTimer = document.getElementById("presenterTimer");
+  const presenterExtra = document.getElementById("presenterExtra");
+  const glossaryBlock = document.getElementById("glossaryBlock");
+  const glossaryList = document.getElementById("glossaryList");
+  const faqBlock = document.getElementById("faqBlock");
+  const faqList = document.getElementById("faqList");
 
   let total = 0;
   let current = 0;
   const openerOrigin = window.location.origin;
+  const guide = window.PRESENTER_GUIDE || {};
 
   function focusPresenter() {
     window.focus();
@@ -44,6 +50,69 @@
     jumpSelect.value = String(current);
   }
 
+  function renderGlossary(items) {
+    if (!glossaryList || !glossaryBlock) return;
+    glossaryList.innerHTML = "";
+
+    if (!items || !items.length) {
+      glossaryBlock.hidden = true;
+      return;
+    }
+
+    items.forEach(function (item) {
+      const dt = document.createElement("dt");
+      dt.textContent = item.term;
+      const dd = document.createElement("dd");
+      dd.textContent = item.desc;
+      glossaryList.appendChild(dt);
+      glossaryList.appendChild(dd);
+    });
+
+    glossaryBlock.hidden = false;
+  }
+
+  function renderFaq(items) {
+    if (!faqList || !faqBlock) return;
+    faqList.innerHTML = "";
+
+    if (!items || !items.length) {
+      faqBlock.hidden = true;
+      return;
+    }
+
+    items.forEach(function (item) {
+      const article = document.createElement("article");
+      article.className = "presenter-faq__item";
+
+      const question = document.createElement("p");
+      question.className = "presenter-faq__question";
+      question.textContent = item.q;
+
+      const answer = document.createElement("p");
+      answer.className = "presenter-faq__answer";
+      answer.textContent = item.a;
+
+      article.appendChild(question);
+      article.appendChild(answer);
+      faqList.appendChild(article);
+    });
+
+    faqBlock.hidden = false;
+  }
+
+  function renderGuide(index) {
+    const slideGuide = guide[index] || {};
+    const glossary = slideGuide.glossary || [];
+    const faq = slideGuide.faq || [];
+
+    renderGlossary(glossary);
+    renderFaq(faq);
+
+    if (presenterExtra) {
+      presenterExtra.hidden = !glossary.length && !faq.length;
+    }
+  }
+
   function updateView(data) {
     current = data.index;
     total = data.total;
@@ -56,6 +125,8 @@
       notesEl.textContent = note || "Keine Sprechernotiz für diese Folie.";
       notesEl.classList.toggle("is-empty", !note);
     }
+
+    renderGuide(current);
 
     if (jumpSelect && jumpSelect.value !== String(current)) {
       jumpSelect.value = String(current);

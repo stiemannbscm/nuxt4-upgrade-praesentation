@@ -17,6 +17,7 @@
 
   <main class="presenter-main">
     <section class="presenter-notes">
+      <h2 class="presenter-notes__heading">Sprechernotiz</h2>
       <div id="notesText" class="presenter-notes__body">Bitte Präsentation im anderen Fenster öffnen.</div>
     </section>
 
@@ -24,6 +25,17 @@
       <label for="slideJump">Direkt zu Folie</label>
       <select id="slideJump" aria-label="Folie auswählen"></select>
     </div>
+
+    <section class="presenter-extra" id="presenterExtra" hidden>
+      <section class="presenter-extra__block" id="glossaryBlock" hidden>
+        <h2 class="presenter-extra__heading">Fachbegriffe</h2>
+        <dl class="presenter-glossary" id="glossaryList"></dl>
+      </section>
+      <section class="presenter-extra__block" id="faqBlock" hidden>
+        <h2 class="presenter-extra__heading">Mögliche Folgefragen</h2>
+        <div class="presenter-faq" id="faqList"></div>
+      </section>
+    </section>
   </main>
 
   <nav class="presenter-nav" aria-label="Foliennavigation">
@@ -32,6 +44,7 @@
     <button type="button" id="nextBtn">Weiter →</button>
   </nav>
 
+  <script src="presenter-guide.js"></script>
   <script src="presenter.js"></script>
 </body>
 </html>
