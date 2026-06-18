@@ -518,30 +518,32 @@ tbody tr.total td {
 
 .intro-hero__profile {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.intro-hero__profile-head {
+.intro-hero__profile-text {
+  flex: 1;
+  min-width: 0;
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .intro-hero__photo {
-  width: 76px;
-  height: 76px;
+  width: 112px;
+  height: 112px;
   object-fit: cover;
   object-position: center 12%;
   border-radius: 50%;
   flex-shrink: 0;
-  border: 2px solid var(--bc-white);
-  box-shadow: 0 4px 14px rgba(12, 46, 76, 0.12);
+  border: 3px solid var(--bc-white);
+  box-shadow: 0 4px 16px rgba(12, 46, 76, 0.14);
 }
 
-.intro-hero__profile .compact {
-  margin: 0;
-  padding-left: 32px;
+.intro-hero__block--self {
+  padding-right: 8px;
 }
 
 .intro-hero__label {
