@@ -1,7 +1,7 @@
 :root {
   --bc-blue: #0099ff;
-  --bc-blue-dark: #0077cc;
   --bc-navy: #0a2540;
+  --bc-gray-600: #5a6b7d;
   --font-sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -22,10 +22,18 @@ body {
 
 .presenter-header {
   flex-shrink: 0;
-  padding: 18px 24px 14px;
+  padding: 20px 24px 16px;
   background: var(--bc-navy);
   color: #fff;
   border-bottom: 3px solid var(--bc-blue);
+}
+
+.presenter-header__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bc-blue);
+  margin-bottom: 6px;
 }
 
 .presenter-header__top {
@@ -33,11 +41,11 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .presenter-header__meta {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 0;
@@ -45,12 +53,12 @@ body {
 
 .presenter-timer {
   flex-shrink: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
   color: #fff;
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(0, 153, 255, 0.35);
@@ -66,7 +74,7 @@ body {
 }
 
 .presenter-header__title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -74,25 +82,100 @@ body {
 .presenter-main {
   flex: 1;
   overflow: auto;
-  padding: 20px 24px 28px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.presenter-notes__body {
-  font-size: 18px;
-  line-height: 1.55;
+.presenter-notes h2,
+.presenter-help h2,
+.presenter-next h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bc-blue);
+  margin-bottom: 10px;
+}
+
+.presenter-notes p {
+  font-size: 20px;
+  line-height: 1.5;
   color: #1a2332;
   white-space: pre-line;
 }
 
-.presenter-notes__body.is-empty {
-  color: #5a6b7d;
+.presenter-notes p.is-empty {
+  color: var(--bc-gray-600);
   font-style: italic;
+}
+
+.presenter-next p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--bc-gray-600);
+}
+
+.presenter-help {
+  background: #fff;
+  border: 1px solid #d8e2ec;
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.presenter-help ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.presenter-help li {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #334155;
+}
+
+.presenter-help kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 2px 8px;
+  margin-right: 6px;
+  background: #eef3f8;
+  border: 1px solid #c5d3e0;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.presenter-jump {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.presenter-jump label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bc-blue);
+  font-weight: 600;
+}
+
+.presenter-jump select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 15px;
+  border: 1px solid #c5d3e0;
+  border-radius: 8px;
+  background: #fff;
 }
 
 .presenter-nav {
   flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   gap: 10px;
   padding: 16px 24px 20px;
   background: #fff;
@@ -100,6 +183,7 @@ body {
 }
 
 .presenter-nav button {
+  flex: 1;
   padding: 14px 16px;
   border: none;
   border-radius: 8px;
@@ -124,21 +208,31 @@ body {
   background: #dce4ec;
 }
 
-#fullscreenBtn {
-  background: var(--bc-navy);
-  color: #fff;
-  min-width: 120px;
-}
-
-#fullscreenBtn:hover {
-  background: #123a5c;
-}
-
 #nextBtn {
   background: var(--bc-blue);
   color: #fff;
 }
 
 #nextBtn:hover:not(:disabled) {
-  background: var(--bc-blue-dark);
+  background: #0077cc;
+}
+
+.presenter-status {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #5a6b7d;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.presenter-status.is-error {
+  color: #9b1c1c;
+  background: #fef2f2;
+}
+
+.presenter-status.is-ok {
+  color: #155724;
+  background: #edf7ef;
 }

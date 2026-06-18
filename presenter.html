@@ -8,6 +8,7 @@
 </head>
 <body>
   <header class="presenter-header">
+    <p class="presenter-header__label">Presenter-Ansicht</p>
     <div class="presenter-header__top">
       <p class="presenter-header__meta" id="slideMeta">Folie — / —</p>
       <time id="presenterTimer" class="presenter-timer" hidden aria-hidden="true">00:00</time>
@@ -15,15 +16,38 @@
     <h1 class="presenter-header__title" id="slideTitle">Warte auf Präsentation …</h1>
   </header>
 
+  <p class="presenter-status" id="presenterStatus">Verbinde …</p>
+
   <main class="presenter-main">
     <section class="presenter-notes">
-      <div id="notesText" class="presenter-notes__body">Bitte Präsentation im anderen Fenster öffnen.</div>
+      <h2>Sprechernotiz</h2>
+      <p id="notesText">Bitte Präsentation im anderen Fenster öffnen.</p>
+    </section>
+
+    <section class="presenter-next">
+      <h2>Vorschau</h2>
+      <p id="nextTitle">—</p>
+    </section>
+
+    <div class="presenter-jump">
+      <label for="slideJump">Direkt zu Folie</label>
+      <select id="slideJump" aria-label="Folie auswählen"></select>
+    </div>
+
+    <section class="presenter-help">
+      <h2>Steuerung</h2>
+      <ul>
+        <li><kbd>→</kbd> <kbd>Leertaste</kbd> Nächste Folie</li>
+        <li><kbd>←</kbd> Vorherige Folie</li>
+        <li><kbd>Pos 1</kbd> Erste Folie · <kbd>Ende</kbd> Letzte Folie</li>
+        <li>Im Präsentationsfenster: <kbd>F</kbd> Vollbild · <kbd>N</kbd> Presenter</li>
+        <li>Fokus auf dieses Fenster lassen, um von hier zu steuern</li>
+      </ul>
     </section>
   </main>
 
   <nav class="presenter-nav" aria-label="Foliennavigation">
     <button type="button" id="prevBtn">← Zurück</button>
-    <button type="button" id="fullscreenBtn">Vollbild</button>
     <button type="button" id="nextBtn">Weiter →</button>
   </nav>
 
