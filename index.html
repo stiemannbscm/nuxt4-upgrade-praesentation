@@ -117,7 +117,7 @@
     </section>
 
     <!-- Slide 4: Projektumfeld -->
-    <section class="slide" data-agenda="0" data-note="Zum Projektumfeld: Das Projekt war bewusst im betrieblichen Entwicklungsalltag angesiedelt. Zielgruppe sind Kolleginnen und Kollegen aus dem Development-Team, die Nuxt-Projekte betreuen.&#10;&#10;Viele dieser Anwendungen basieren auf Nuxt 3 — mit Nuxt 4 und dem bevorstehenden End-of-Life steigt der Migrationsbedarf. Mein Werkzeug soll genau in diesem Alltag unterstützen.&#10;&#10;Wichtige Schnittstellen waren der Projektbetreuer, das Development-Team als spätere Anwender, sowie Git/GitHub und unsere TypeScript Coding Guidelines als technische Rahmenbedingungen.">
+    <section class="slide" data-agenda="0" data-note="Zum Projektumfeld: Das Abschlussprojekt war bewusst im betrieblichen Entwicklungsalltag bei basecom angesiedelt — nicht als Laborübung, sondern als Werkzeug für Kolleginnen und Kollegen.&#10;&#10;Zielgruppe sind Entwicklerinnen und Entwickler im Team, die Nuxt-Anwendungen in Kundenprojekten betreuen. Wichtige Schnittstellen waren mein Projektbetreuer zur fachlichen Begleitung und Abnahme sowie das Development-Team als spätere Anwender.&#10;&#10;Technisch und organisatorisch eingebunden habe ich mich in bestehende Abläufe: Git/GitHub, TypeScript, Node.js, Code Review und unsere Team-Standards.&#10;&#10;Damit ist der Rahmen klar — im nächsten Schritt erläutere ich, warum genau in diesem Umfeld ein Migrationswerkzeug gebraucht wurde.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektumfeld</h2>
@@ -125,17 +125,17 @@
       <div class="slide-body">
         <p class="lead">Betriebliche Projektarbeit im Entwicklungsalltag</p>
         <ul>
-          <li>Projekt für und mit dem <strong>Development-Team</strong> — praxisnaher betrieblicher Nutzen</li>
-          <li>Mehrere Kundenprojekte auf Basis von <strong>Nuxt 3</strong> — Migrationsbedarf steigt mit Nuxt 4</li>
+          <li>Abschlussprojekt für und mit dem <strong>Development-Team</strong> — spätere Anwender im Alltag</li>
+          <li>Mehrere produktive <strong>Nuxt-Anwendungen</strong> in Kunden- und Teamprojekten</li>
           <li>Einbindung in bestehende Prozesse: Code Review, Git-Workflow, Team-Standards</li>
-          <li><strong>Schnittstellen:</strong> Projektbetreuer (Abnahme), Development-Team (Anwender)</li>
-          <li><strong>Technisches Umfeld:</strong> Git/GitHub, TypeScript, Node.js</li>
+          <li><strong>Schnittstellen:</strong> Projektbetreuer (Begleitung &amp; Abnahme)</li>
+          <li><strong>Technisches Umfeld:</strong> Git/GitHub · TypeScript · Node.js</li>
         </ul>
       </div>
     </section>
 
-    <!-- Slide 6 -->
-    <section class="slide" data-note="Der konkrete Projektanlass ist das Nuxt-3-End-of-Life zum 31. Juli 2026. Bestehende Projekte müssen rechtzeitig auf Nuxt 4 gehoben werden.&#10;&#10;Bisher lief Migration bei uns weitgehend manuell ab: Jeder Entwickler recherchiert selbst in Leitfäden, Release Notes und Moduldokumentationen, kopiert Befehle und prüft das Ergebnis individuell. Das kostet Zeit und führt zu unterschiedlichen Ergebnissen — je nach Erfahrung und Gewissenhaftigkeit.&#10;&#10;Außerdem fehlt oft ein nachvollziehbarer Standard: Was wurde am Modul-Inventar geprüft? Welche Schritte liefen durch? Genau diese wiederkehrenden Aufgaben wollte ich bündeln — ohne die fachliche Verantwortung der Entwickler abzugeben." data-agenda="0">
+    <!-- Slide 5: Projektanlass & Ausgangslage -->
+    <section class="slide" data-note="Der konkrete Anlass ist das Nuxt-3-End-of-Life zum 31. Juli 2026 — bestehende Projekte müssen rechtzeitig auf Nuxt 4 gehoben werden.&#10;&#10;Bisher lief Migration bei uns weitgehend manuell ab: Jeder Entwickler recherchiert selbst in Leitfäden, Release Notes und Moduldokumentationen, stellt den Ablauf individuell zusammen und prüft das Ergebnis allein. Das kostet Zeit und führt zu unterschiedlichen Ergebnissen.&#10;&#10;Im Code Review fehlt oft die Nachvollziehbarkeit: Welche Schritte liefen? Was wurde am Modul-Inventar geprüft? Genau diese wiederkehrenden Aufgaben wollte ich bündeln — ohne die fachliche Verantwortung der Entwickler abzugeben." data-agenda="0">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektanlass &amp; Ausgangslage</h2>
@@ -146,7 +146,7 @@
           <li>Migrationen bisher <strong>manuell</strong> — jeder Entwickler stellt den Prozess selbst zusammen</li>
           <li>Informationen aus vielen Leitfäden, Release Notes und Moduldokumentationen zusammentragen</li>
           <li>Hoher Zeitaufwand pro Projekt, kaum Wiederverwendbarkeit zwischen Teams</li>
-          <li>Risiko uneinheitlicher Ergebnisse und fehlender Nachvollziehbarkeit im Code Review</li>
+          <li>Risiko uneinheitlicher Ergebnisse — im Code Review schwer nachvollziehbar</li>
           <li>Kein einheitlicher Standardprozess für Modul-Inventar und Validierung nach dem Upgrade</li>
         </ul>
         <blockquote class="highlight-box">Kernfrage: Wie lassen sich wiederkehrende Schritte bündeln, ohne die Kontrolle über projektspezifische Entscheidungen zu verlieren?</blockquote>
