@@ -524,7 +524,11 @@ tbody tr.total td {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 520px;
+  max-width: 560px;
+}
+
+.intro-hero__nowrap {
+  white-space: nowrap;
 }
 
 .intro-hero__photo {
