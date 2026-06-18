@@ -3,6 +3,7 @@
   --stage-w: 1920px;
   --stage-h: 1080px;
   --chrome-h: 92px;
+  --chrome-agenda-visible: 4;
   --slide-h: calc(var(--stage-h) - var(--chrome-h)); /* 1028px */
 
   --bc-blue: #0099ff;
@@ -814,7 +815,7 @@ tbody tr.total td {
 }
 
 .chrome-agenda__item {
-  flex: 1 1 0;
+  flex: 0 0 calc(100% / var(--chrome-agenda-visible));
   display: flex;
   flex-direction: column;
   align-items: center;
