@@ -3,6 +3,7 @@
 
   const STAGE_W = 1920;
   const STAGE_H = 1080;
+  const SLIDE_STORAGE_KEY = "nuxt4-praesentation-slide";
 
   const viewport = document.getElementById("viewport");
   const stage = document.getElementById("stage");
@@ -30,6 +31,26 @@
 
   function isPresenterPopup() {
     return window.name === "presenter-notes";
+  }
+
+  function getSavedSlideIndex() {
+    try {
+      var raw = sessionStorage.getItem(SLIDE_STORAGE_KEY);
+      if (raw === null) return 0;
+      var index = parseInt(raw, 10);
+      if (!isNaN(index) && index >= 0 && index < slides.length) return index;
+    } catch (err) {
+      /* ignore */
+    }
+    return 0;
+  }
+
+  function saveSlideIndex(index) {
+    try {
+      sessionStorage.setItem(SLIDE_STORAGE_KEY, String(index));
+    } catch (err) {
+      /* ignore */
+    }
   }
 
   function getSlidesCatalog() {
@@ -408,6 +429,7 @@
     });
 
     current = index;
+    saveSlideIndex(index);
     const note = slides[index].dataset.note || "";
     if (notesText) notesText.textContent = note.replace(/&#10;/g, "\n");
     updateAgendaNav(index);
@@ -511,7 +533,7 @@
   document.addEventListener("fullscreenchange", fitStage);
 
   fitStage();
-  updateSlide(0);
+  updateSlide(getSavedSlideIndex());
 
   if (!isPresenterPopup()) {
     window.setTimeout(function () {
