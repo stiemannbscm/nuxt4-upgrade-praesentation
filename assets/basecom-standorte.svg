@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-label="basecom Standorte weltweit">
+  <defs>
+    <linearGradient id="ocean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef3f8"/>
+      <stop offset="100%" stop-color="#e3ebf3"/>
+    </linearGradient>
+    <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0099ff" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="520" rx="16" fill="url(#ocean)"/>
+
+  <!-- Stylized continents -->
+  <g fill="#d8e2ec" stroke="#b8c9d9" stroke-width="1.5">
+    <path d="M120 120c40-24 110-18 150 20 34 34 18 88-18 118-42 36-98 28-132-8-28-30-24-88 0-130z"/>
+    <path d="M170 250c72-8 130 34 148 92 12 42-8 88-48 108-56 28-124 4-152-48-22-42-8-118 52-152z"/>
+    <path d="M360 95c84-18 170 8 214 72 28 42 22 98-12 136-48 54-132 68-198 34-58-30-78-112-36-168 28-38 72-58 32-74z"/>
+    <path d="M500 300c56 10 92 52 88 98-4 48-48 86-98 84-54-2-96-46-88-98 6-42 46-78 98-84z"/>
+    <path d="M610 115c34-12 78-4 98 28 18 28 10 68-18 88-32 24-78 18-98-12-18-26-8-78 18-104z"/>
+    <path d="M690 330c44 0 78 28 82 64 4 38-28 72-68 72-42 0-76-32-72-68 4-34 34-68 58-68z"/>
+  </g>
+
+  <!-- Connection arcs -->
+  <g fill="none" stroke="#0099ff" stroke-width="2" stroke-dasharray="7 6" opacity="0.55">
+    <path d="M492 188 C560 120, 700 140, 748 228"/>
+    <path d="M492 188 C360 210, 268 230, 228 248"/>
+  </g>
+
+  <!-- Apex, USA -->
+  <g transform="translate(228 248)">
+    <circle r="11" fill="#0099ff" opacity="0.18"/>
+    <circle r="6" fill="#0099ff"/>
+    <line x1="8" y1="-8" x2="72" y2="-34" stroke="#5a6b7d" stroke-width="1.5"/>
+    <text x="78" y="-30" fill="#1a2332" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">Apex, USA</text>
+    <text x="78" y="-10" fill="#5a6b7d" font-family="Segoe UI, system-ui, sans-serif" font-size="14">basecom Inc.</text>
+  </g>
+
+  <!-- Timioara, Romania -->
+  <g transform="translate(748 228)">
+    <circle r="11" fill="#0099ff" opacity="0.18"/>
+    <circle r="6" fill="#0099ff"/>
+    <line x1="8" y1="0" x2="58" y2="18" stroke="#5a6b7d" stroke-width="1.5"/>
+    <text x="64" y="14" fill="#1a2332" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">Timioara, RO</text>
+    <text x="64" y="34" fill="#5a6b7d" font-family="Segoe UI, system-ui, sans-serif" font-size="14">Niederlassung</text>
+  </g>
+
+  <!-- Osnabrück HQ (highlight) -->
+  <g transform="translate(492 188)" filter="url(#dotGlow)">
+    <circle r="18" fill="#0099ff" opacity="0.22"/>
+    <circle r="10" fill="#0099ff"/>
+    <circle r="4" fill="#fff"/>
+  </g>
+  <g transform="translate(492 188)">
+    <line x1="-12" y1="-18" x2="-110" y2="-72" stroke="#0a2540" stroke-width="2"/>
+    <text x="-116" y="-78" text-anchor="end" fill="#0a2540" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">Osnabrück</text>
+    <text x="-116" y="-54" text-anchor="end" fill="#5a6b7d" font-family="Segoe UI, system-ui, sans-serif" font-size="15">Hauptstandort · DE</text>
+  </g>
+
+  <!-- Germany cluster note -->
+  <text x="492" y="468" text-anchor="middle" fill="#5a6b7d" font-family="Segoe UI, system-ui, sans-serif" font-size="15">
+    Weitere Standorte in Deutschland: Berlin · Hamburg · Köln · München · Stuttgart · Hanau
+  </text>
+</svg>
