@@ -446,21 +446,33 @@ tbody tr.total td {
   position: relative;
   overflow: hidden;
   padding-top: 28px;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
-.intro-hero__map {
+.intro-hero__map-layer {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 88%;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-height: 92%;
+  max-width: 68%;
+}
+
+.intro-hero__map {
+  display: block;
+  height: auto;
+  max-height: 820px;
   width: auto;
-  max-width: 62%;
+  max-width: 100%;
   object-fit: contain;
   object-position: right bottom;
   mix-blend-mode: screen;
-  pointer-events: none;
   user-select: none;
-  z-index: 0;
 }
 
 .intro-hero__content {
@@ -472,7 +484,8 @@ tbody tr.total td {
   justify-content: center;
   gap: 18px;
   min-height: 100%;
-  padding-right: 24px;
+  padding-right: var(--pad-x);
+  padding-bottom: var(--pad-y);
 }
 
 .intro-hero__name {
