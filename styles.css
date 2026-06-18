@@ -570,12 +570,17 @@ tbody tr.total td {
   margin: 0;
 }
 
-.intro-hero__company {
-  font-size: 34px;
-  line-height: 1.25;
-  font-weight: 600;
-  color: var(--bc-navy);
-  margin: 0;
+.intro-hero__block--company {
+  font-size: 36px;
+  line-height: 1.38;
+}
+
+.intro-hero__block--company .intro-hero__label {
+  font-size: 22px;
+}
+
+.intro-hero__block--company ul.compact li {
+  margin-bottom: 4px;
 }
 
 .intro-hero__block ul {
