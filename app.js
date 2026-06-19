@@ -193,6 +193,57 @@
     stage.style.transform = "scale(" + scale + ")";
   }
 
+  var WIRTSCHAFT_TEXT_MAX = 34;
+  var WIRTSCHAFT_TEXT_MIN = 26;
+
+  function textOverflows(el) {
+    return el.scrollWidth > el.clientWidth + 1;
+  }
+
+  function fitFontSize(el, maxPx, minPx) {
+    if (!el) return;
+    var size = maxPx;
+    el.style.fontSize = size + "px";
+
+    while (size > minPx && textOverflows(el)) {
+      size -= 1;
+      el.style.fontSize = size + "px";
+    }
+  }
+
+  function fitWirtschaftTable(table) {
+    if (!table) return;
+    var size = WIRTSCHAFT_TEXT_MAX;
+    table.style.fontSize = size + "px";
+
+    function tableOverflows() {
+      var cells = table.querySelectorAll("th, td");
+      for (var i = 0; i < cells.length; i++) {
+        if (textOverflows(cells[i])) return true;
+      }
+      return false;
+    }
+
+    while (size > WIRTSCHAFT_TEXT_MIN && tableOverflows()) {
+      size -= 1;
+      table.style.fontSize = size + "px";
+    }
+  }
+
+  function fitWirtschaftSlide() {
+    var slide = document.querySelector(".slide--wirtschaft.active");
+    if (!slide) return;
+
+    slide.querySelectorAll(".table--fit").forEach(fitWirtschaftTable);
+    fitFontSize(slide.querySelector(".calc-formula"), WIRTSCHAFT_TEXT_MAX, WIRTSCHAFT_TEXT_MIN);
+  }
+
+  function scheduleWirtschaftFit() {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(fitWirtschaftSlide);
+    });
+  }
+
   function getSlideTitle(slide, index) {
     const h2 = slide.querySelector(".slide-header h2");
     if (h2) return h2.textContent.trim();
@@ -437,6 +488,7 @@
     updateSlideCounter(index);
     updatePresentationTimer(index);
     syncPresenterWindow(index);
+    scheduleWirtschaftFit();
   }
 
   function next() {
@@ -529,11 +581,16 @@
     fitStage();
     scrollAgendaToActive(current);
     updateAgendaFade();
+    scheduleWirtschaftFit();
   });
-  document.addEventListener("fullscreenchange", fitStage);
+  document.addEventListener("fullscreenchange", function () {
+    fitStage();
+    scheduleWirtschaftFit();
+  });
 
   fitStage();
   updateSlide(getSavedSlideIndex());
+  scheduleWirtschaftFit();
 
   if (!isPresenterPopup()) {
     window.setTimeout(function () {

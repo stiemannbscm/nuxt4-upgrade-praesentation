@@ -664,6 +664,24 @@ tbody tr.total td {
   flex: 1;
   align-content: start;
   height: auto;
+  gap: 32px;
+}
+
+.slide--wirtschaft .table--fit {
+  table-layout: fixed;
+  width: 100%;
+  max-width: 100%;
+}
+
+.slide--wirtschaft .table--fit .col-vorgang { width: 54%; }
+.slide--wirtschaft .table--fit .col-zeit { width: 14%; }
+.slide--wirtschaft .table--fit .col-satz { width: 16%; }
+.slide--wirtschaft .table--fit .col-kosten { width: 16%; }
+.slide--wirtschaft .table--fit .col-position { width: 68%; }
+.slide--wirtschaft .table--fit .col-wert { width: 32%; }
+
+.slide--wirtschaft .calc-column {
+  min-width: 0;
 }
 
 .slide--wirtschaft .calc-column h3 {
@@ -675,18 +693,27 @@ tbody tr.total td {
   font-size: 34px;
 }
 
+.slide--wirtschaft .table--compact th,
+.slide--wirtschaft .table--compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
 .slide--wirtschaft .table--compact thead th {
-  padding: 9px 12px;
+  padding: 9px 10px;
 }
 
 .slide--wirtschaft .table--compact tbody td {
-  padding: 8px 12px;
+  padding: 8px 10px;
 }
 
 .slide--wirtschaft .calc-formula {
   font-size: 34px;
   margin-top: 12px;
   padding: 14px 18px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .wirtschaft-footer {
