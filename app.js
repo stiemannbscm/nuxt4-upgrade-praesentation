@@ -615,8 +615,33 @@
     scheduleWirtschaftFit();
   });
 
+  function renderFullGlossary() {
+    var container = document.getElementById("glossaryFull");
+    var items = window.PRESENTER_ALL_GLOSSARY;
+    if (!container || !items || !items.length) return;
+
+    container.innerHTML = "";
+    items.forEach(function (item) {
+      var el = document.createElement("div");
+      el.className = "glossary-full__item";
+
+      var term = document.createElement("p");
+      term.className = "glossary-full__term";
+      term.textContent = item.term;
+
+      var desc = document.createElement("p");
+      desc.className = "glossary-full__desc";
+      desc.textContent = item.desc;
+
+      el.appendChild(term);
+      el.appendChild(desc);
+      container.appendChild(el);
+    });
+  }
+
   fitStage();
   renderAllMath();
+  renderFullGlossary();
   updateSlide(getSavedSlideIndex());
   scheduleWirtschaftFit();
 
