@@ -655,6 +655,23 @@ tbody tr.total td {
   line-height: 1.38;
 }
 
+.slide--architektur .alternatives-list {
+  margin: 4px 0 10px;
+  padding-left: 8px;
+}
+
+.slide--architektur .alternatives-list li {
+  font-size: 28px;
+  line-height: 1.32;
+  margin-bottom: 6px;
+}
+
+.slide--architektur .alternatives-list__heading {
+  font-size: 30px;
+  margin-bottom: 4px;
+  color: var(--bc-gray-600);
+}
+
 .slide--architektur .split__image img,
 .slide--architektur .architektur-diagram {
   width: 100%;

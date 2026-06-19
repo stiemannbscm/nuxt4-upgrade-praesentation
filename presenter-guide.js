@@ -81,6 +81,10 @@
         { term: "Modulare Architektur", desc: "Fünf getrennte Bausteine mit klaren Schnittstellen — im Schichtendiagramm dargestellt." },
         { term: "Orchestrierung", desc: "Steuerung offizieller Nuxt-Kommandos — das Werkzeug ersetzt sie nicht." },
         { term: "nuxi upgrade", desc: "Offizielles Nuxt-CLI-Kommando zum Version-Upgrade." },
+        { term: "@clack/prompts", desc: "Gewählte Node.js-Bibliothek für interaktive CLI-Prompts — klare UX, Spinner, Confirm/Select mit wenig Code." },
+        { term: "@inquirer/prompts", desc: "Alternative: etablierter Nachfolger von Inquirer — große Community, mehr Konfiguration und Boilerplate." },
+        { term: "prompts", desc: "Alternative: leichtgewichtige Prompt-Bibliothek — ähnlicher Ansatz wie Clack, kleinerer Funktionsumfang." },
+        { term: "enquirer", desc: "Alternative: performante Terminal-Prompts — flexiblere UI, andere API als Clack/Inquirer." },
         { term: "Stateless", desc: "Keine Datenbank — Laufzeitdaten aus package.json, Lockfiles und Kommandoausgaben." }
       ]
     },
