@@ -20,10 +20,10 @@ window.PRESENTER_GUIDE = {
   },
   3: {
     glossary: [
-      { term: "Projektumfeld", desc: "Organisatorischer und technischer Rahmen: Team, Prozesse, Stakeholder, Technologie." },
-      { term: "Development-Team", desc: "Entwickler bei basecom — Auftraggeber und Anwender des Werkzeugs in Kundenprojekten." },
-      { term: "Stakeholder", desc: "Beteiligte mit Interesse am Projektergebnis — hier Entwickler und Projektleitung." },
-      { term: "Code Review", desc: "Gegenseitige Prüfung von Code-Änderungen im Team vor dem Merge." }
+      { term: "Projektumfeld", desc: "Organisatorischer und technischer Rahmen: Zielgruppe, Prozesse, Schnittstellen, Technologie." },
+      { term: "Development-Team", desc: "Entwickler bei basecom — Zielgruppe des Werkzeugs; betreut Nuxt-Anwendungen in Kundenprojekten." },
+      { term: "Projektbetreuer", desc: "Fachlicher Ansprechpartner im Betrieb — Begleitung, Review und Abnahme während der Entwicklung." },
+      { term: "Code Review", desc: "Gegenseitige Prüfung von Code-Änderungen — Standard im Team, an den sich die Entwicklung orientiert." }
     ]
   },
   4: {
@@ -93,7 +93,7 @@ window.PRESENTER_GUIDE = {
     glossary: [
       { term: "Soll-Ist-Vergleich", desc: "Abgleich geplanter Projektziele (Soll) mit dem tatsächlichen Ergebnis (Ist)." },
       { term: "Pflichtenheft", desc: "Dokument mit Anforderungen und Zielen — Grundlage der Abnahme." },
-      { term: "Abnahme", desc: "Formale Bestätigung durch Projektbetreuer nach erfolgreichen Testläufen." }
+      { term: "Abnahme", desc: "Formale Bestätigung durch den Projektbetreuer nach erfolgreichen Testläufen." }
     ]
   },
   13: {
