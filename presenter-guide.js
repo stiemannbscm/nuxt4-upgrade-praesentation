@@ -45,15 +45,16 @@ window.PRESENTER_GUIDE = {
   },
   6: {
     glossary: [
-      { term: "Make-or-Buy", desc: "Entscheidung zwischen Eigenentwicklung und Anschaffung externer Lösung." },
-      { term: "Stundensatz", desc: "Kalkulatorischer Wert pro Arbeitsstunde — hier 110 € (Auszubildender) und 170 € (Entwickler)." },
-      { term: "Projektkosten", desc: "Einmalige Entwicklungskosten — hier 9.735 € laut Projektdokumentation." }
+      { term: "Projektkosten", desc: "Einmalige Entwicklungskosten — hier 9.735 € laut Projektdokumentation." },
+      { term: "Stundensatz", desc: "Kalkulatorischer Wert pro Arbeitsstunde — 110 €/h (Auszubildender) und 170 €/h (Entwickler)." },
+      { term: "Gesamtkosten", desc: "Summe aus Entwicklung (8.800 €) und Betreuung (935 €)." }
     ]
   },
   7: {
     glossary: [
       { term: "Amortisation", desc: "Zeitpunkt, ab dem Einsparungen die einmaligen Entwicklungskosten ausgleichen — ab ca. 20. Migration." },
-      { term: "Einsparung pro Migration", desc: "3 Stunden × 170 € = 510 € gegenüber manuellem Vorgehen (8 h vs. ca. 5 h)." }
+      { term: "Zeitersparnis", desc: "3 Stunden pro Migration (8 h manuell minus ca. 5 h mit CLI)." },
+      { term: "Make-or-Buy", desc: "Entscheidung zwischen Eigenentwicklung und Anschaffung externer Lösung — hier Eigenentwicklung." }
     ]
   },
   8: {

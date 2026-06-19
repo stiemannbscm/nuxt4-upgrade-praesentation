@@ -235,7 +235,9 @@
     if (!slide) return;
 
     slide.querySelectorAll(".table--fit").forEach(fitWirtschaftTable);
-    fitFontSize(slide.querySelector(".calc-formula"), WIRTSCHAFT_TEXT_MAX, WIRTSCHAFT_TEXT_MIN);
+    slide.querySelectorAll(".calc-formula").forEach(function (el) {
+      fitFontSize(el, WIRTSCHAFT_TEXT_MAX, WIRTSCHAFT_TEXT_MIN);
+    });
   }
 
   function scheduleWirtschaftFit() {

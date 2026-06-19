@@ -178,16 +178,16 @@
       </div>
     </section>
 
-    <!-- Slide 7: Make-or-Buy & Projektkosten -->
-    <section class="slide slide--wirtschaft" data-note="Zur Wirtschaftlichkeit: Die Eigenentwicklung wurde gegen Anschaffung externer Lösungen und gegen rein manuelle Migration abgewogen.&#10;&#10;Make-or-Buy fiel auf Eigenentwicklung, weil keine Standardlösung Nuxt-Kern, Modul-Inventar und flexible Agenten-Orchestrierung abdeckt.&#10;&#10;Stundensätze laut Projektdokumentation: Auszubildender 110 Euro, Entwickler 170 Euro. Gegenüber dem Kunden kalkuliert inklusive Lizenz- und Hardwarekosten — keine separaten Zusatzkosten.&#10;&#10;Die einmaligen Projektkosten betragen 9.735 Euro — 80 Stunden Entwicklung plus Betreuung und Abnahme. Auf der nächsten Folie zeige ich, ab wann sich das rechnerisch amortisiert." data-agenda="1">
+    <!-- Slide 7: Projektkosten -->
+    <section class="slide slide--wirtschaft" data-note="Die einmaligen Projektkosten setzen sich aus Entwicklung und Betreuung zusammen.&#10;&#10;Stundensätze laut Projektdokumentation: Auszubildender 110 Euro, Entwickler 170 Euro. Gegenüber dem Kunden kalkuliert inklusive Lizenz- und Hardwarekosten — keine separaten Zusatzkosten.&#10;&#10;80 Stunden Entwicklung mal 110 Euro ergeben 8.800 Euro. Betreuung, Abstimmung und Abnahme mit 5,5 Stunden mal 170 Euro ergeben 935 Euro. In Summe 9.735 Euro einmalige Investition.&#10;&#10;Auf der nächsten Folie zeige ich, ab wann sich das rechnerisch amortisiert — und warum Make-or-Buy auf Eigenentwicklung fiel." data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
-        <h2>Make-or-Buy &amp; Projektkosten</h2>
+        <h2>Projektkosten</h2>
       </header>
       <div class="slide-body">
         <div class="calc-layout">
           <div class="calc-column">
-            <h3>Projektkosten (einmalig)</h3>
+            <h3>Einmalige Entwicklungskosten</h3>
             <table class="table--compact table--fit">
               <colgroup>
                 <col class="col-vorgang">
@@ -199,22 +199,26 @@
                 <tr><th>Vorgang</th><th>Zeit</th><th class="num">Satz</th><th class="num">Kosten</th></tr>
               </thead>
               <tbody>
-                <tr><td>Entwicklung CLI-Werkzeug</td><td>80 h</td><td class="num">110 €</td><td class="num">8.800 €</td></tr>
-                <tr><td>Betreuung, Abstimmung, Abnahme</td><td>5,5 h</td><td class="num">170 €</td><td class="num">935 €</td></tr>
+                <tr><td>Entwicklung CLI-Werkzeug</td><td>80 h</td><td class="num">110 €/h</td><td class="num">8.800 €</td></tr>
+                <tr><td>Betreuung, Abstimmung, Abnahme</td><td>5,5 h</td><td class="num">170 €/h</td><td class="num">935 €</td></tr>
                 <tr><td colspan="3"><strong>Gesamtkosten</strong></td><td class="num"><strong>9.735 €</strong></td></tr>
               </tbody>
             </table>
+            <div class="calc-formulas">
+              <p class="calc-formula">Entwicklung: 80 h × 110 €/h = <strong>8.800 €</strong></p>
+              <p class="calc-formula">Betreuung: 5,5 h × 170 €/h = <strong>935 €</strong></p>
+              <p class="calc-formula calc-formula--result">Gesamt: 8.800 € + 935 € = <strong>9.735 €</strong></p>
+            </div>
           </div>
         </div>
-        <p class="wirtschaft-footer">Make-or-Buy: <strong>Eigenentwicklung</strong> — keine Standardlösung deckt Nuxt-Kern, Modul-Inventar und flexible Agenten-Orchestrierung ab</p>
       </div>
     </section>
 
-    <!-- Slide 8: Amortisationsrechnung -->
-    <section class="slide slide--wirtschaft" data-note="Hier die Amortisationsrechnung: Manuell rechne ich mit 8 Stunden pro Migration, mit dem CLI-Werkzeug circa 5 Stunden — das sind 3 Stunden Einsparung pro Projekt. Bei 170 Euro Stundensatz sind das 510 Euro pro Migration.&#10;&#10;9.735 Euro geteilt durch 510 Euro ergibt 19,09 — ab der zwanzigsten Migration amortisiert sich die Investition.&#10;&#10;Mindestens so wichtig ist der qualitative Nutzen: weniger Suchaufwand, einheitlicher Prozess und bessere Nachvollziehbarkeit — auch vor Erreichen der Amortisationsgrenze.&#10;&#10;Als Nächstes: Wie bin ich technisch und organisatorisch vorgegangen?" data-agenda="1">
+    <!-- Slide 8: Amortisationsrechnung & Make-or-Buy -->
+    <section class="slide slide--wirtschaft" data-note="Zur Amortisation: Manuell rechne ich mit 8 Stunden pro Migration, mit dem CLI-Werkzeug circa 5 Stunden — das sind 3 Stunden Einsparung. Bei 170 Euro Stundensatz sind das 510 Euro pro Migration.&#10;&#10;9.735 Euro geteilt durch 510 Euro ergibt 19,09 — ab der zwanzigsten Migration amortisiert sich die Investition.&#10;&#10;Make-or-Buy wurde gegen externe Lösungen und rein manuelle Migration abgewogen. Eigenentwicklung, weil keine Standardlösung Nuxt-Kern, Modul-Inventar und flexible Agenten-Orchestrierung abdeckt.&#10;&#10;Mindestens so wichtig ist der qualitative Nutzen: weniger Suchaufwand, einheitlicher Prozess und bessere Nachvollziehbarkeit — auch vor Erreichen der Amortisationsgrenze.&#10;&#10;Als Nächstes: Wie bin ich technisch und organisatorisch vorgegangen?" data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
-        <h2>Amortisationsrechnung</h2>
+        <h2>Amortisationsrechnung &amp; Make-or-Buy</h2>
       </header>
       <div class="slide-body">
         <div class="calc-layout">
@@ -231,14 +235,17 @@
               <tbody>
                 <tr><td>Manuelle Migration (inkl. Modulprüfung &amp; Validierung)</td><td class="num">8 h</td></tr>
                 <tr><td>Mit CLI-Werkzeug (geschätzt)</td><td class="num">ca. 5 h</td></tr>
-                <tr><td><strong>Einsparung pro Migration</strong></td><td class="num"><strong>3 h × 170 € = 510 €</strong></td></tr>
+                <tr><td><strong>Zeitersparnis pro Migration</strong></td><td class="num"><strong>3 h</strong></td></tr>
               </tbody>
             </table>
-            <p class="calc-formula">
-              Amortisation: 9.735 € ÷ 510 € = <strong>19,09</strong> → ab der <strong>20. Migration</strong>
-            </p>
+            <div class="calc-formulas">
+              <p class="calc-formula">Zeitersparnis: 8 h − 5 h = <strong>3 h</strong> pro Migration</p>
+              <p class="calc-formula">Monetär: 3 h × 170 €/h = <strong>510 €</strong> pro Migration</p>
+              <p class="calc-formula calc-formula--result">Amortisation: 9.735 € ÷ 510 € = <strong>19,09</strong> → ab der <strong>20. Migration</strong></p>
+            </div>
           </div>
         </div>
+        <p class="wirtschaft-footer">Make-or-Buy: <strong>Eigenentwicklung</strong> — keine Standardlösung deckt Nuxt-Kern, Modul-Inventar und flexible Agenten-Orchestrierung ab</p>
       </div>
     </section>
 

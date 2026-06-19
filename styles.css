@@ -716,12 +716,24 @@ tbody tr.total td {
   padding: 8px 10px;
 }
 
+.slide--wirtschaft .calc-formulas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
 .slide--wirtschaft .calc-formula {
-  font-size: 34px;
-  margin-top: 10px;
-  padding: 12px 18px;
+  font-size: 32px;
+  margin-top: 0;
+  padding: 10px 16px;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.slide--wirtschaft .calc-formula--result {
+  border-left-color: var(--bc-navy);
+  background: rgba(0, 153, 255, 0.08);
 }
 
 .wirtschaft-footer {
