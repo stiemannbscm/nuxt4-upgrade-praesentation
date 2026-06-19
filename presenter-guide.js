@@ -21,9 +21,10 @@ window.PRESENTER_GUIDE = {
   3: {
     glossary: [
       { term: "Projektumfeld", desc: "Organisatorischer und technischer Rahmen: Zielgruppe, Prozesse, Schnittstellen, Technologie." },
-      { term: "Development-Team", desc: "Entwickler bei basecom — Zielgruppe des Werkzeugs; betreut Nuxt-Anwendungen in Kundenprojekten." },
-      { term: "Projektbetreuer", desc: "Fachlicher Ansprechpartner im Betrieb — Begleitung, Review und Abnahme während der Entwicklung." },
-      { term: "Code Review", desc: "Gegenseitige Prüfung von Code-Änderungen — Standard im Team, an den sich die Entwicklung orientiert." }
+      { term: "Organisatorische Schnittstelle", desc: "Menschliche Ansprechpartner im Projekt — hier: Projektbetreuer." },
+      { term: "Technische Schnittstelle", desc: "Systeme, mit denen das Werkzeug arbeitet — z. B. Git/GitHub, Nuxt-Projekte, Node/npm." },
+      { term: "Zielgruppe", desc: "Adressaten des Werkzeugs — Development-Team, nicht zwingend aktive Projektbeteiligte." },
+      { term: "Projektbetreuer", desc: "Einzige direkte menschliche Schnittstelle: Begleitung, Review und Abnahme." }
     ]
   },
   4: {

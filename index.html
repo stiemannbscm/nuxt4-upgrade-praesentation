@@ -114,7 +114,7 @@
     </section>
 
     <!-- Slide 4: Projektumfeld -->
-    <section class="slide" data-agenda="0" data-note="Zum Projektumfeld: Das Projekt entstand aus dem Bedarf im Development-Team bei basecom — als internes Werkzeug für den Produktivbetrieb, nicht als isolierte Nebenaufgabe.&#10;&#10;Das Team betreut mehrere Nuxt-Anwendungen in Kundenprojekten. Genau dort soll das CLI künftig eingesetzt werden, wo heute jede Migration individuell organisiert wird.&#10;&#10;Die Entwicklung habe ich eigenverantwortlich umgesetzt und mich dabei an die Standards des Teams orientiert: Git/GitHub, TypeScript, Node.js und Code Review. Den fachlichen Austausch während des Projekts führte ich mit meinem Projektbetreuer — von der Einordnung über Reviews bis zur Abnahme.&#10;&#10;Damit ist der Rahmen klar — im nächsten Schritt erläutere ich, warum genau in diesem Umfeld ein Migrationswerkzeug gebraucht wurde.">
+    <section class="slide" data-agenda="0" data-note="Zum Projektumfeld: Das Projekt entstand aus dem Bedarf im Development-Team bei basecom — als internes Werkzeug für den Produktivbetrieb, nicht als isolierte Nebenaufgabe.&#10;&#10;Das Team betreut mehrere Nuxt-Anwendungen in Kundenprojekten und ist die Zielgruppe des CLI — nicht aber meine direkte Projektschnittstelle während der Entwicklung.&#10;&#10;Organisatorisch war mein Projektbetreuer die einzige menschliche Schnittstelle: fachliche Einordnung, Reviews und Abnahme. Technisch arbeitet das Werkzeug in Git-Repositories auf bestehenden Nuxt-3-Projekten im Node.js-Ökosystem — Git/GitHub, Package Manager und die Zielcodebases gehören zum betrieblichen Umfeld. Details wie Nuxt-CLI oder Agenten-Anbindung erläutere ich später bei Architektur und Implementierung.&#10;&#10;Die Entwicklung habe ich eigenverantwortlich umgesetzt und mich an Team-Standards wie Code Review, TypeScript und etablierte Git-Workflows orientiert.&#10;&#10;Damit ist der Rahmen klar — im nächsten Schritt erläutere ich, warum genau in diesem Umfeld ein Migrationswerkzeug gebraucht wurde.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektumfeld</h2>
@@ -124,9 +124,9 @@
         <ul>
           <li><strong>Zielgruppe:</strong> Development-Team mit produktiven <strong>Nuxt-Anwendungen</strong> im Kundenprojektgeschäft</li>
           <li><strong>Projektkontext:</strong> Werkzeug für wiederkehrende Migrationen im betrieblichen Entwicklungsalltag</li>
-          <li>Orientierung an etablierten Team-Standards: Git-Workflow, Code Review, TypeScript, Node.js</li>
-          <li><strong>Schnittstelle:</strong> Projektbetreuer (fachliche Begleitung, Review &amp; Abnahme)</li>
-          <li><strong>Technisches Umfeld:</strong> Git/GitHub · TypeScript · Node.js</li>
+          <li><strong>Organisatorische Schnittstelle:</strong> Projektbetreuer (fachliche Begleitung, Review &amp; Abnahme)</li>
+          <li><strong>Technische Schnittstellen:</strong> Git/GitHub · Nuxt-Anwendungen als Zielprojekte · Node.js &amp; Package Manager</li>
+          <li>Orientierung an Team-Standards: Code Review, TypeScript, etablierte Git-Workflows</li>
         </ul>
       </div>
     </section>
