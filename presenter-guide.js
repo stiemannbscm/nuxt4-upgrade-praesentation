@@ -46,11 +46,17 @@ window.PRESENTER_GUIDE = {
   6: {
     glossary: [
       { term: "Make-or-Buy", desc: "Entscheidung zwischen Eigenentwicklung und Anschaffung externer Lösung." },
-      { term: "Amortisation", desc: "Zeitpunkt, ab dem Einsparungen die einmaligen Entwicklungskosten ausgleichen." },
-      { term: "Stundensatz", desc: "Kalkulatorischer Wert pro Arbeitsstunde — hier 110 € (Auszubildender) und 170 € (Entwickler)." }
+      { term: "Stundensatz", desc: "Kalkulatorischer Wert pro Arbeitsstunde — hier 110 € (Auszubildender) und 170 € (Entwickler)." },
+      { term: "Projektkosten", desc: "Einmalige Entwicklungskosten — hier 9.735 € laut Projektdokumentation." }
     ]
   },
   7: {
+    glossary: [
+      { term: "Amortisation", desc: "Zeitpunkt, ab dem Einsparungen die einmaligen Entwicklungskosten ausgleichen — ab ca. 20. Migration." },
+      { term: "Einsparung pro Migration", desc: "3 Stunden × 170 € = 510 € gegenüber manuellem Vorgehen (8 h vs. ca. 5 h)." }
+    ]
+  },
+  8: {
     glossary: [
       { term: "Wasserfallmodell", desc: "Phasenorientiertes Vorgehen: Analyse → Entwurf → Implementierung → Test → Doku." },
       { term: "Erweitertes Wasserfallmodell", desc: "Klare Phasen, aber iterative Feinjustierung innerhalb der Implementierung an Testprojekten." },
@@ -58,7 +64,7 @@ window.PRESENTER_GUIDE = {
       { term: "@clack/prompts", desc: "Node.js-Bibliothek für interaktive CLI-Eingaben (Auswahl, Bestätigung)." }
     ]
   },
-  8: {
+  9: {
     glossary: [
       { term: "Modulare Architektur", desc: "Getrennte Bausteine (CLI, Analyse, Modul-Workflow …) mit klaren Schnittstellen." },
       { term: "nuxi upgrade", desc: "Offizielles Nuxt-CLI-Kommando zum Version-Upgrade." },
@@ -66,7 +72,7 @@ window.PRESENTER_GUIDE = {
       { term: "Artefakte", desc: "Dateien wie Logs, Reports und Inventare, die ein Lauf erzeugt." }
     ]
   },
-  9: {
+  10: {
     glossary: [
       { term: "Projektanalyse", desc: "Automatische Erkennung von Nuxt-Version, Modulen, Package Manager und Projektstruktur." },
       { term: "Package Manager", desc: "npm, pnpm, yarn oder bun — verwaltet Abhängigkeiten im Node-Projekt." },
@@ -74,7 +80,7 @@ window.PRESENTER_GUIDE = {
       { term: "Workflow", desc: "Auswählbarer Ablauf: nur Kern-Upgrade, nur Module oder kombiniert." }
     ]
   },
-  10: {
+  11: {
     glossary: [
       { term: "Modul-Workflow", desc: "Strukturierter Ablauf zum Inventarisieren und Bearbeiten offizieller Nuxt-Module." },
       { term: "Playbook / Inventar", desc: "Generierter Bericht über Module, Versionen und Migrationshinweise." },
@@ -82,7 +88,7 @@ window.PRESENTER_GUIDE = {
       { term: "Scope", desc: "Eingegrenzter Auftrag an den Agenten — kein generelles Refactoring." }
     ]
   },
-  11: {
+  12: {
     glossary: [
       { term: "Validierung", desc: "Prüfung durch Typecheck und Build nach Migrationsschritten." },
       { term: "Exitcodes", desc: "Rückgabewerte von Programmen — 0 = Erfolg, ungleich 0 = Fehler." },
@@ -90,21 +96,21 @@ window.PRESENTER_GUIDE = {
       { term: "Qualitätssicherung (QS)", desc: "Maßnahmen zur Sicherstellung der Softwarequalität im Prozess." }
     ]
   },
-  12: {
+  13: {
     glossary: [
       { term: "Soll-Ist-Vergleich", desc: "Abgleich geplanter Projektziele (Soll) mit dem tatsächlichen Ergebnis (Ist)." },
       { term: "Pflichtenheft", desc: "Dokument mit Anforderungen und Zielen — Grundlage der Abnahme." },
       { term: "Abnahme", desc: "Formale Bestätigung durch den Projektbetreuer nach erfolgreichen Testläufen." }
     ]
   },
-  13: {
+  14: {
     glossary: [
       { term: "Lessons Learned", desc: "Erkenntnisse aus dem Projektverlauf für künftige Arbeit." },
       { term: "npm-Paket", desc: "Veröffentlichung als installierbares Node-Paket im Unternehmen — geplanter Ausblick." },
       { term: "Prompt Engineering", desc: "Gezielte Formulierung von Anweisungen an KI-Agenten für brauchbare Ergebnisse." }
     ]
   },
-  14: {
+  15: {
     glossary: []
   }
 };

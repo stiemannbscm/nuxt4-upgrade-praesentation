@@ -661,11 +661,27 @@ tbody tr.total td {
 }
 
 .slide--wirtschaft .calc-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  flex: 0 1 auto;
+  display: block;
   width: 100%;
+  flex: 0 1 auto;
+}
+
+.slide--wirtschaft .calc-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.slide--wirtschaft .calc-column h3 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.slide--wirtschaft .slide-body:has(.wirtschaft-footer) .calc-layout {
+  flex: 1;
+}
+
+.slide--wirtschaft .slide-body:has(.wirtschaft-footer) {
+  justify-content: space-between;
 }
 
 .slide--wirtschaft .table--fit .col-vorgang { width: 58%; }
@@ -675,20 +691,10 @@ tbody tr.total td {
 .slide--wirtschaft .table--fit .col-position { width: 72%; }
 .slide--wirtschaft .table--fit .col-wert { width: 28%; }
 
-.slide--wirtschaft .calc-column {
-  min-width: 0;
-  width: 100%;
-}
-
 .slide--wirtschaft .table--fit {
   table-layout: fixed;
   width: 100%;
   max-width: 100%;
-}
-
-.slide--wirtschaft .calc-column h3 {
-  font-size: 36px;
-  margin-bottom: 10px;
 }
 
 .slide--wirtschaft .table--compact {
@@ -719,7 +725,7 @@ tbody tr.total td {
 }
 
 .wirtschaft-footer {
-  margin-top: 16px;
+  margin-top: 24px;
   padding-top: 0;
   font-size: 40px;
   line-height: 1.35;
