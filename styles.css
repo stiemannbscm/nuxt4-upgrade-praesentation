@@ -483,6 +483,19 @@ tbody tr.total td {
   justify-content: center;
 }
 
+.slide--architektur .split__text ul.compact li {
+  margin-bottom: 12px;
+  line-height: 1.38;
+}
+
+.slide--architektur .split__image img {
+  width: 100%;
+  height: auto;
+  max-height: 780px;
+  object-fit: contain;
+  padding: 12px;
+}
+
 /* Intro hero slide */
 .slide-body.intro-hero {
   position: relative;

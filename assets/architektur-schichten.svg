@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 620" role="img" aria-label="Schichtenmodell des CLI-Werkzeugs">
+  <defs>
+    <linearGradient id="layerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0099ff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#0099ff" stop-opacity="0.06"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0099ff"/>
+    </marker>
+  </defs>
+
+  <rect width="560" height="620" rx="12" fill="#f4f7fa"/>
+
+  <text x="280" y="38" text-anchor="middle" fill="#0a2540" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">nuxt4-upgrade  Schichtenmodell</text>
+
+  <!-- Application layers -->
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <rect x="48" y="62" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="92" fill="#0099ff" font-size="18" font-weight="700">CLI</text>
+    <text x="72" y="118" fill="#5a6b7d" font-size="15">Einstieg, Workflow-Steuerung (@clack/prompts)</text>
+
+    <rect x="48" y="148" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="178" fill="#0099ff" font-size="18" font-weight="700">Projektanalyse</text>
+    <text x="72" y="204" fill="#5a6b7d" font-size="15">package.json, Nuxt-Version, Package Manager</text>
+
+    <rect x="48" y="234" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="264" fill="#0099ff" font-size="18" font-weight="700">Modul-Workflow</text>
+    <text x="72" y="290" fill="#5a6b7d" font-size="15">Inventar &amp; Migration offizieller Nuxt-Module</text>
+
+    <rect x="48" y="320" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="350" fill="#0099ff" font-size="18" font-weight="700">Artefakte</text>
+    <text x="72" y="376" fill="#5a6b7d" font-size="15">Logs, Reports, Modul-Inventare</text>
+
+    <rect x="48" y="406" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="72" y="436" fill="#0099ff" font-size="18" font-weight="700">Agenten</text>
+    <text x="72" y="462" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
+  </g>
+
+  <!-- Connector -->
+  <line x1="280" y1="490" x2="280" y2="518" stroke="#0099ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="280" y="512" text-anchor="middle" fill="#0099ff" font-size="14" font-weight="600" font-family="Segoe UI, system-ui, sans-serif">orchestriert</text>
+
+  <!-- External Nuxt layer -->
+  <rect x="48" y="528" width="464" height="68" rx="10" fill="#0a2540"/>
+  <text x="280" y="558" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
+  <text x="280" y="582" text-anchor="middle" fill="#b8c9d9" font-family="Segoe UI, system-ui, sans-serif" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
+</svg>

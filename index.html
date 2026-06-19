@@ -286,24 +286,23 @@
     </section>
 
     <!-- Slide 10: Architektur -->
-    <section class="slide slide--split" data-note="Die Architektur ist bewusst modular aufgebaut. Ich habe keine eigene Migrations-Engine neu erfunden, sondern die offiziellen Nuxt-Werkzeuge in einen wiederholbaren betrieblichen Prozess eingebettet.&#10;&#10;Das senkt Wartungsaufwand: Wenn Nuxt seine Upgrade-Kommandos anpasst, muss vor allem die Orchestrierung angepasst werden — nicht die gesamte Migrationslogik.&#10;&#10;Im Diagramm sehen Sie die Schichten: CLI-Oberfläche, Prozessschritte, Anbindung an Nuxt-CLI und Codemods, optional Agenten für Folgeaufgaben sowie Validierung mit Typecheck und Build. Jeder Schritt kann einzeln nachvollzogen werden." data-agenda="2">
+    <section class="slide slide--split slide--architektur" data-note="Die Architektur ist bewusst modular aufgebaut — im Diagramm sehen Sie die fünf Schichten des Werkzeugs.&#10;&#10;Oben die CLI als Einstieg und Workflow-Steuerung. Darunter Projektanalyse für package.json, Nuxt-Version und Package Manager. Der Modul-Workflow kümmert sich um offizielle Nuxt-Module. Artefakte erzeugen Logs, Reports und Inventare. Agenten sind optional für begrenzte Folgearbeiten.&#10;&#10;Entscheidend: Ich habe keine eigene Migrations-Engine neu erfunden. Das Werkzeug orchestriert offizielle Nuxt-Kommandos — nuxi upgrade, Typecheck, Build. Wenn Nuxt seine Tools anpasst, muss vor allem die Orchestrierung nachgezogen werden, nicht die gesamte Migrationslogik.&#10;&#10;Technisch: TypeScript und Node.js, interaktive CLI mit @clack/prompts, keine Datenbank — Laufzeitdaten kommen aus package.json, Lockfiles und Kommandoausgaben. Modulgrenzen dienen Wartbarkeit und späterer Erweiterbarkeit auf weitere Nuxt-Versionen.&#10;&#10;Konkret startet alles in der CLI — das zeige ich auf der nächsten Folie." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Architektur &amp; Technologie</h2>
       </header>
       <div class="slide-body split">
         <div class="split__text">
-<p class="lead">Modularer Aufbau — offizielle Nuxt-Tools bleiben die technische Basis</p>
-          <ul>
-            <li><strong>Stack:</strong> TypeScript, Node.js, CLI-Framework <code>@clack/prompts</code></li>
-            <li><strong>Fünf Bausteine:</strong> CLI, Projektanalyse, Modul-Workflow, Artefakte, Agenten</li>
-            <li><strong>Drei Workflows:</strong> Kernframework · offizielle Module · kombinierter Gesamtprozess</li>
+          <p class="lead">Modularer Schichtenaufbau — offizielle Nuxt-Tools bleiben die technische Basis</p>
+          <ul class="compact">
+            <li><strong>Stack:</strong> TypeScript, Node.js, <code>@clack/prompts</code> — stateless, keine Datenbank</li>
+            <li><strong>Fünf Bausteine:</strong> CLI · Projektanalyse · Modul-Workflow · Artefakte · Agenten</li>
+            <li><strong>Drei Workflows:</strong> Kernframework · offizielle Module · kombiniert</li>
             <li>Nuxt-Kommandos (<code>nuxi upgrade</code>, Typecheck, Build) werden <strong>orchestriert</strong>, nicht ersetzt</li>
-            <li><strong>Entscheidung:</strong> Modulgrenzen für Wartbarkeit und spätere Erweiterbarkeit (weitere Nuxt-Versionen)</li>
           </ul>
         </div>
         <figure class="split__image">
-          <img src="assets/architektur.png" alt="Aktivitätsdiagramm des CLI-Werkzeugs">
+          <img src="assets/architektur-schichten.svg" alt="Schichtenmodell: CLI, Projektanalyse, Modul-Workflow, Artefakte, Agenten — orchestriert offizielle Nuxt-Tools">
         </figure>
       </div>
     </section>

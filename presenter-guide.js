@@ -67,10 +67,10 @@ window.PRESENTER_GUIDE = {
   },
   9: {
     glossary: [
-      { term: "Modulare Architektur", desc: "Getrennte Bausteine (CLI, Analyse, Modul-Workflow …) mit klaren Schnittstellen." },
+      { term: "Modulare Architektur", desc: "Fünf getrennte Bausteine mit klaren Schnittstellen — im Schichtendiagramm dargestellt." },
+      { term: "Orchestrierung", desc: "Steuerung offizieller Nuxt-Kommandos — das Werkzeug ersetzt sie nicht." },
       { term: "nuxi upgrade", desc: "Offizielles Nuxt-CLI-Kommando zum Version-Upgrade." },
-      { term: "Typecheck", desc: "Statische Typprüfung via TypeScript — Validierung nach Migrationsschritten." },
-      { term: "Artefakte", desc: "Dateien wie Logs, Reports und Inventare, die ein Lauf erzeugt." }
+      { term: "Stateless", desc: "Keine Datenbank — Laufzeitdaten aus package.json, Lockfiles und Kommandoausgaben." }
     ]
   },
   10: {
