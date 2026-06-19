@@ -60,8 +60,13 @@ window.PRESENTER_GUIDE = {
   },
   8: {
     glossary: [
-      { term: "Wasserfallmodell", desc: "Phasenorientiertes Vorgehen: Analyse → Entwurf → Implementierung → Test → Dokumentation." },
-      { term: "Erweitertes Wasserfallmodell", desc: "Klare Phasen, aber iterative Feinjustierung innerhalb der Implementierung an Test-Repositories." },
+      { term: "Wasserfallmodell", desc: "Klassisch phasenorientiert: Analyse → Entwurf → Implementierung → Test → Dokumentation. Jede Phase wird weitgehend abgeschlossen, bevor die nächste startet — gut bei festen Anforderungen." },
+      { term: "Erweitertes Wasserfallmodell", desc: "Wie Wasserfall mit klaren Phasen, aber iterative Feinjustierung innerhalb der Implementierung an Test-Repositories — Erkenntnisse fließen zurück in Code und Planung." },
+      { term: "Scrum", desc: "Agiles Framework in festen Sprints (1–4 Wochen): Product Backlog → Sprint Planning → Daily Scrum → Sprint Review → Retrospektive. Anforderungen können sich laufend anpassen." },
+      { term: "Kanban", desc: "Flussorientiert ohne Sprints: Aufgaben auf einem Board (To Do → In Arbeit → Erledigt), WIP-Limits begrenzen parallele Arbeit. Kontinuierliche Lieferung statt Sprint-Rhythmus." },
+      { term: "V-Modell XT", desc: "Deutscher Standard für IT-Projekte: links Spezifikationsstufen (Anforderungen → System → Software), rechts passende Teststufen — zusammen ein V. Jede Stufe hat eine zugehörige Prüfstufe." },
+      { term: "Spiralmodell", desc: "Risikogetriebene Zyklen: Ziel festlegen → Risiken analysieren → Prototyp/Engineering → Bewerten → nächste Runde. Sinnvoll bei hoher technischer Unsicherheit, planungsintensiver." },
+      { term: "Warum hier Wasserfall?", desc: "Pflichtenheft, IHK-Dokumentation und feste Projektziele von Beginn an — planbare Phasen passen besser als Scrum/Kanban. Iteration nur dort, wo technische Details an echten Repos validiert werden mussten." },
       { term: "Projektumfang", desc: "Geplanter Gesamtaufwand 80 Stunden — laut Planung eingehalten." },
       { term: "Risikopuffer", desc: "8 h Reserve für unvorhergesehene Anpassungen im Projektverlauf." }
     ]
