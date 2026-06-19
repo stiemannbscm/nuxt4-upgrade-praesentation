@@ -653,6 +653,53 @@ tbody tr.total td {
 .card li { margin-bottom: 10px; }
 
 /* Wirtschaftlichkeit / Kalkulation */
+.slide--wirtschaft .slide-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+  padding-bottom: 24px;
+}
+
+.slide--wirtschaft .calc-layout {
+  flex: 1;
+  align-content: start;
+  height: auto;
+}
+
+.slide--wirtschaft .calc-column h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.slide--wirtschaft .table--compact {
+  font-size: 34px;
+}
+
+.slide--wirtschaft .table--compact thead th {
+  padding: 9px 12px;
+}
+
+.slide--wirtschaft .table--compact tbody td {
+  padding: 8px 12px;
+}
+
+.slide--wirtschaft .calc-formula {
+  font-size: 34px;
+  margin-top: 12px;
+  padding: 14px 18px;
+}
+
+.wirtschaft-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 40px;
+  line-height: 1.35;
+  color: var(--bc-navy);
+  font-weight: 500;
+  align-self: flex-start;
+  max-width: 92%;
+}
+
 .calc-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
