@@ -149,33 +149,29 @@
       </div>
     </section>
 
-    <!-- Slide 5: Two columns -->
-    <section class="slide" data-note="Das Projektziel ist ein interaktives CLI-Werkzeug, das einen geführten, wiederholbaren Migrationsprozess abbildet. Es unterstützt Projektanalyse, führt durch die offiziellen Nuxt-Upgrade-Schritte, erzeugt Artefakte und behandelt Nuxt-Module in einem eigenen Workflow.&#10;&#10;Bewusst ausgeschlossen habe ich eine grafische Oberfläche — die Zielgruppe sind Entwickler in der Shell. Ebenso keine unkontrollierte Vollautomatisierung: Bei Drittanbieter-Modulen und projektspezifischen Besonderheiten muss der Mensch entscheiden.&#10;&#10;Das Werkzeug soll entlasten, nicht entmündigen. Agenten dürfen bei Restarbeiten helfen, ersetzen aber keine fachliche Prüfung und kein Code Review." data-agenda="1">
+    <!-- Slide 6: Projektziel & Abgrenzung -->
+    <section class="slide slide--ziel" data-note="Aus der Kernfrage der vorherigen Folie leite ich ab: Wiederkehrende Migrationsaufgaben sollen gebündelt werden, um Zeit zu sparen — ohne die Kontrolle abzugeben.&#10;&#10;Das Projektziel ist ein interaktives CLI-Werkzeug namens nuxt4-upgrade. Es bildet einen geführten, wiederholbaren Prozess ab: Projektanalyse, offizielle Nuxt-Upgrade-Schritte, Validierung, nachvollziehbare Artefakte und ein separater Modul-Workflow inklusive Inventar. Optional können Agenten bei verbleibenden Folgeaufgaben unterstützen — mit klar begrenztem Scope.&#10;&#10;Zur Abgrenzung: Keine vollautonome Migration beliebiger Fremdprojekte und keine vollständige Automatisierung von Drittanbieter-Modulen — bei Sonderfällen entscheidet der Entwickler. Keine grafische Oberfläche, weil die Zielgruppe in Terminal, Git und IDE arbeitet. Agenten ersetzen keine fachliche Prüfung und kein Code Review.&#10;&#10;Merksatz für Prüfer: Das Werkzeug orchestriert offizielle Nuxt-Kommandos — es ersetzt sie nicht. Es soll entlasten, nicht entmündigen.&#10;&#10;Als Nächstes: Lohnt sich die Eigenentwicklung wirtschaftlich?" data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektziel &amp; Abgrenzung</h2>
       </header>
-      <div class="slide-body columns">
-<p class="lead">Ziel: ein <strong>wiederholbarer, geführter Prozess</strong> — Entwickler behalten die fachliche Verantwortung</p>
-        <div class="columns">
-          <div class="column">
+      <div class="slide-body">
+        <p class="lead">Wiederkehrende Aufgaben bündeln — <strong>Zeit sparen</strong>, Kontrolle beim Entwickler</p>
+        <div class="ziel-grid">
+          <div class="ziel-grid__col ziel-grid__col--ziel">
             <h3>Ziel</h3>
-            <ul>
-              <li>Interaktives CLI-Werkzeug (<code>nuxt4-upgrade</code>)</li>
-              <li>Standardisierte, teilautomatisierte Migration Nuxt 3 → Nuxt 4</li>
-              <li>Projektanalyse, Validierung und nachvollziehbare Artefakterzeugung</li>
-              <li>Separater Workflow für offizielle Nuxt-Module inkl. Inventar</li>
-              <li>Optionale Agenten-Unterstützung für verbleibende Folgearbeiten</li>
+            <ul class="compact">
+              <li>CLI <code>nuxt4-upgrade</code> — geführter Migrationsprozess</li>
+              <li>Teilautomatisierung Nuxt 3 → 4 · Analyse &amp; Artefakte</li>
+              <li>Modul-Workflow · optional Agenten für Restarbeit</li>
             </ul>
           </div>
-          <div class="column">
+          <div class="ziel-grid__col ziel-grid__col--abgrenzung">
             <h3>Abgrenzung</h3>
-            <ul>
-              <li>Keine vollautonome Migration beliebiger Fremdprojekte</li>
-              <li>Keine grafische Benutzeroberfläche — bewusst CLI für Entwickler</li>
-              <li>Keine vollständige Automatisierung von Drittanbieter-Modulen</li>
-              <li>Agenten unterstützen, ersetzen aber keine fachliche Prüfung</li>
-              <li>Kein Ersatz für offizielle Nuxt-Upgrade-Kommandos — nur Orchestrierung</li>
+            <ul class="compact">
+              <li>Keine Vollautomatisierung — Entwickler entscheidet</li>
+              <li>Keine GUI — bewusst CLI</li>
+              <li>Orchestriert Nuxt-Tools — ersetzt sie nicht</li>
             </ul>
           </div>
         </div>
