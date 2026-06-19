@@ -284,7 +284,7 @@
     </section>
 
     <!-- Slide 10: Architektur -->
-    <section class="slide slide--split slide--architektur" data-note="Die Architektur ist bewusst modular aufgebaut — im Diagramm sehen Sie die fünf Schichten des Werkzeugs.&#10;&#10;Oben die CLI als Einstieg und Workflow-Steuerung. Darunter Projektanalyse für package.json, Nuxt-Version und Package Manager. Der Modul-Workflow kümmert sich um offizielle Nuxt-Module. Artefakte erzeugen Logs, Reports und Inventare. Agenten sind optional für begrenzte Folgearbeiten.&#10;&#10;Entscheidend: Ich habe keine eigene Migrations-Engine neu erfunden. Das Werkzeug orchestriert offizielle Nuxt-Kommandos — nuxi upgrade, Typecheck, Build. Wenn Nuxt seine Tools anpasst, muss vor allem die Orchestrierung nachgezogen werden, nicht die gesamte Migrationslogik.&#10;&#10;Technisch: TypeScript und Node.js, interaktive CLI mit @clack/prompts, keine Datenbank — Laufzeitdaten kommen aus package.json, Lockfiles und Kommandoausgaben. Modulgrenzen dienen Wartbarkeit und späterer Erweiterbarkeit auf weitere Nuxt-Versionen.&#10;&#10;Konkret startet alles in der CLI — das zeige ich auf der nächsten Folie." data-agenda="2">
+    <section class="slide slide--split slide--architektur" data-note="Die Architektur ist bewusst modular aufgebaut — im Diagramm sehen Sie die Schichten des Werkzeugs von oben nach unten.&#10;&#10;Oben die CLI als Einstieg und Workflow-Steuerung, darunter die Projektanalyse. Direkt anschließend die orchestrierten offiziellen Nuxt-Tools — nuxi upgrade, Typecheck, Build — weil dort der technische Kern der Migration stattfindet.&#10;&#10;Darüber hinaus Modul-Workflow, Artefakte und optional Agenten für begrenzte Folgearbeiten. Entscheidend: Ich habe keine eigene Migrations-Engine neu erfunden — das Werkzeug steuert die Nuxt-Kommandos, ersetzt sie aber nicht.&#10;&#10;Technisch: TypeScript und Node.js, interaktive CLI mit @clack/prompts, keine Datenbank — Laufzeitdaten kommen aus package.json, Lockfiles und Kommandoausgaben.&#10;&#10;Konkret startet alles in der CLI — das zeige ich auf der nächsten Folie." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Architektur &amp; Technologie</h2>
@@ -307,9 +307,6 @@
                 <stop offset="0%" stop-color="#0099ff" stop-opacity="0.14"/>
                 <stop offset="100%" stop-color="#0099ff" stop-opacity="0.06"/>
               </linearGradient>
-              <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L6,3 L0,6 Z" fill="#0099ff"/>
-              </marker>
             </defs>
             <rect width="560" height="620" rx="12" fill="#f4f7fa"/>
             <text x="280" y="38" text-anchor="middle" fill="#0a2540" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">nuxt4-upgrade – Schichtenmodell</text>
@@ -320,21 +317,20 @@
               <rect x="48" y="148" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
               <text x="72" y="178" fill="#0099ff" font-size="18" font-weight="700">Projektanalyse</text>
               <text x="72" y="204" fill="#5a6b7d" font-size="15">package.json, Nuxt-Version, Package Manager</text>
-              <rect x="48" y="234" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
-              <text x="72" y="264" fill="#0099ff" font-size="18" font-weight="700">Modul-Workflow</text>
-              <text x="72" y="290" fill="#5a6b7d" font-size="15">Inventar &amp; Migration offizieller Nuxt-Module</text>
-              <rect x="48" y="320" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
-              <text x="72" y="350" fill="#0099ff" font-size="18" font-weight="700">Artefakte</text>
-              <text x="72" y="376" fill="#5a6b7d" font-size="15">Logs, Reports, Modul-Inventare</text>
-              <rect x="48" y="406" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="1.5" stroke-dasharray="6 4"/>
-              <text x="72" y="436" fill="#0099ff" font-size="18" font-weight="700">Agenten</text>
-              <text x="72" y="462" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
+              <rect x="48" y="234" width="464" height="68" rx="10" fill="#0a2540"/>
+              <text x="72" y="264" fill="#ffffff" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
+              <text x="488" y="264" text-anchor="end" fill="#0099ff" font-size="14" font-weight="600">orchestriert</text>
+              <text x="280" y="286" text-anchor="middle" fill="#b8c9d9" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
+              <rect x="48" y="316" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+              <text x="72" y="346" fill="#0099ff" font-size="18" font-weight="700">Modul-Workflow</text>
+              <text x="72" y="372" fill="#5a6b7d" font-size="15">Inventar &amp; Migration offizieller Nuxt-Module</text>
+              <rect x="48" y="402" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+              <text x="72" y="432" fill="#0099ff" font-size="18" font-weight="700">Artefakte</text>
+              <text x="72" y="458" fill="#5a6b7d" font-size="15">Logs, Reports, Modul-Inventare</text>
+              <rect x="48" y="488" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <text x="72" y="518" fill="#0099ff" font-size="18" font-weight="700">Agenten</text>
+              <text x="72" y="544" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
             </g>
-            <line x1="280" y1="490" x2="280" y2="518" stroke="#0099ff" stroke-width="2" marker-end="url(#arrowDown)"/>
-            <text x="280" y="512" text-anchor="middle" fill="#0099ff" font-size="14" font-weight="600" font-family="Segoe UI, system-ui, sans-serif">orchestriert</text>
-            <rect x="48" y="528" width="464" height="68" rx="10" fill="#0a2540"/>
-            <text x="280" y="558" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
-            <text x="280" y="582" text-anchor="middle" fill="#b8c9d9" font-family="Segoe UI, system-ui, sans-serif" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
           </svg>
         </figure>
       </div>

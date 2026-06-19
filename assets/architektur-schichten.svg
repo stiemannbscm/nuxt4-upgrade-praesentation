@@ -4,9 +4,6 @@
       <stop offset="0%" stop-color="#0099ff" stop-opacity="0.14"/>
       <stop offset="100%" stop-color="#0099ff" stop-opacity="0.06"/>
     </linearGradient>
-    <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#0099ff"/>
-    </marker>
   </defs>
 
   <rect width="560" height="620" rx="12" fill="#f4f7fa"/>
@@ -22,23 +19,21 @@
     <text x="72" y="178" fill="#0099ff" font-size="18" font-weight="700">Projektanalyse</text>
     <text x="72" y="204" fill="#5a6b7d" font-size="15">package.json, Nuxt-Version, Package Manager</text>
 
-    <rect x="48" y="234" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
-    <text x="72" y="264" fill="#0099ff" font-size="18" font-weight="700">Modul-Workflow</text>
-    <text x="72" y="290" fill="#5a6b7d" font-size="15">Inventar &amp; Migration offizieller Nuxt-Module</text>
+    <rect x="48" y="234" width="464" height="68" rx="10" fill="#0a2540"/>
+    <text x="72" y="264" fill="#ffffff" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
+    <text x="488" y="264" text-anchor="end" fill="#0099ff" font-size="14" font-weight="600">orchestriert</text>
+    <text x="280" y="286" text-anchor="middle" fill="#b8c9d9" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
 
-    <rect x="48" y="320" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
-    <text x="72" y="350" fill="#0099ff" font-size="18" font-weight="700">Artefakte</text>
-    <text x="72" y="376" fill="#5a6b7d" font-size="15">Logs, Reports, Modul-Inventare</text>
+    <rect x="48" y="316" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="346" fill="#0099ff" font-size="18" font-weight="700">Modul-Workflow</text>
+    <text x="72" y="372" fill="#5a6b7d" font-size="15">Inventar &amp; Migration offizieller Nuxt-Module</text>
 
-    <rect x="48" y="406" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="1.5" stroke-dasharray="6 4"/>
-    <text x="72" y="436" fill="#0099ff" font-size="18" font-weight="700">Agenten</text>
-    <text x="72" y="462" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
+    <rect x="48" y="402" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
+    <text x="72" y="432" fill="#0099ff" font-size="18" font-weight="700">Artefakte</text>
+    <text x="72" y="458" fill="#5a6b7d" font-size="15">Logs, Reports, Modul-Inventare</text>
+
+    <rect x="48" y="488" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="72" y="518" fill="#0099ff" font-size="18" font-weight="700">Agenten</text>
+    <text x="72" y="544" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
   </g>
-
-  <line x1="280" y1="490" x2="280" y2="518" stroke="#0099ff" stroke-width="2" marker-end="url(#arrowDown)"/>
-  <text x="280" y="512" text-anchor="middle" fill="#0099ff" font-size="14" font-weight="600" font-family="Segoe UI, system-ui, sans-serif">orchestriert</text>
-
-  <rect x="48" y="528" width="464" height="68" rx="10" fill="#0a2540"/>
-  <text x="280" y="558" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
-  <text x="280" y="582" text-anchor="middle" fill="#b8c9d9" font-family="Segoe UI, system-ui, sans-serif" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
 </svg>
