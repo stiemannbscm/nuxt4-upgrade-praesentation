@@ -230,10 +230,35 @@
     }
   }
 
+  function renderMathInContainer(container) {
+    if (!window.katex || !container) return;
+
+    container.querySelectorAll(".math-latex:not([data-rendered])").forEach(function (el) {
+      var latex = el.getAttribute("data-latex");
+      if (!latex) return;
+
+      try {
+        katex.render(latex, el, {
+          throwOnError: false,
+          strict: "ignore"
+        });
+        el.setAttribute("data-rendered", "true");
+      } catch (err) {
+        el.textContent = latex;
+      }
+    });
+  }
+
+  function renderAllMath() {
+    var root = document.getElementById("presentation");
+    if (root) renderMathInContainer(root);
+  }
+
   function fitWirtschaftSlide() {
     var slide = document.querySelector(".slide--wirtschaft.active");
     if (!slide) return;
 
+    renderMathInContainer(slide);
     slide.querySelectorAll(".table--fit").forEach(fitWirtschaftTable);
     slide.querySelectorAll(".calc-formula").forEach(function (el) {
       fitFontSize(el, WIRTSCHAFT_TEXT_MAX, WIRTSCHAFT_TEXT_MIN);
@@ -591,6 +616,7 @@
   });
 
   fitStage();
+  renderAllMath();
   updateSlide(getSavedSlideIndex());
   scheduleWirtschaftFit();
 

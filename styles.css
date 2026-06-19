@@ -719,21 +719,52 @@ tbody tr.total td {
 .slide--wirtschaft .calc-formulas {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin-top: 14px;
 }
 
 .slide--wirtschaft .calc-formula {
-  font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 34px;
   margin-top: 0;
-  padding: 10px 16px;
-  white-space: nowrap;
+  padding: 12px 18px;
   overflow: hidden;
+}
+
+.slide--wirtschaft .calc-formula__label {
+  flex: 0 0 180px;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--bc-navy);
+  line-height: 1.2;
+}
+
+.slide--wirtschaft .calc-formula .math-latex {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.slide--wirtschaft .calc-formula .katex {
+  font-size: 1em;
+  color: var(--bc-navy);
+}
+
+.slide--wirtschaft .calc-formula .katex .textbf,
+.slide--wirtschaft .calc-formula .katex .mord.text {
+  color: var(--bc-navy);
 }
 
 .slide--wirtschaft .calc-formula--result {
   border-left-color: var(--bc-navy);
   background: rgba(0, 153, 255, 0.08);
+}
+
+.slide--wirtschaft .calc-formula--result .katex {
+  color: var(--bc-blue-dark);
+  font-weight: 600;
 }
 
 .wirtschaft-footer {

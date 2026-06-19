@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abschlussprüfung – Sören Tiemann | basecom</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -205,9 +206,18 @@
               </tbody>
             </table>
             <div class="calc-formulas">
-              <p class="calc-formula">Entwicklung: 80 h × 110 €/h = <strong>8.800 €</strong></p>
-              <p class="calc-formula">Betreuung: 5,5 h × 170 €/h = <strong>935 €</strong></p>
-              <p class="calc-formula calc-formula--result">Gesamt: 8.800 € + 935 € = <strong>9.735 €</strong></p>
+              <div class="calc-formula">
+                <span class="calc-formula__label">Entwicklung</span>
+                <span class="math-latex" data-latex="80\,\text{h} \cdot 110\,\tfrac{\text{€}}{\text{h}} = \text{8.800 €}"></span>
+              </div>
+              <div class="calc-formula">
+                <span class="calc-formula__label">Betreuung</span>
+                <span class="math-latex" data-latex="5{,}5\,\text{h} \cdot 170\,\tfrac{\text{€}}{\text{h}} = \text{935 €}"></span>
+              </div>
+              <div class="calc-formula calc-formula--result">
+                <span class="calc-formula__label">Gesamt</span>
+                <span class="math-latex" data-latex="\text{8.800 €} + \text{935 €} = \text{9.735 €}"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -239,9 +249,18 @@
               </tbody>
             </table>
             <div class="calc-formulas">
-              <p class="calc-formula">Zeitersparnis: 8 h − 5 h = <strong>3 h</strong> pro Migration</p>
-              <p class="calc-formula">Monetär: 3 h × 170 €/h = <strong>510 €</strong> pro Migration</p>
-              <p class="calc-formula calc-formula--result">Amortisation: 9.735 € ÷ 510 € = <strong>19,09</strong> → ab der <strong>20. Migration</strong></p>
+              <div class="calc-formula">
+                <span class="calc-formula__label">Zeitersparnis</span>
+                <span class="math-latex" data-latex="8\,\text{h} - 5\,\text{h} = 3\,\text{h}"></span>
+              </div>
+              <div class="calc-formula">
+                <span class="calc-formula__label">Monetär</span>
+                <span class="math-latex" data-latex="3\,\text{h} \cdot 170\,\tfrac{\text{€}}{\text{h}} = \text{510 €}"></span>
+              </div>
+              <div class="calc-formula calc-formula--result">
+                <span class="calc-formula__label">Amortisation</span>
+                <span class="math-latex" data-latex="\dfrac{\text{9.735 €}}{\text{510 €}} = 19{,}09 \;\Rightarrow\; \text{ab der 20.\ Migration}"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -485,6 +504,7 @@
   </aside>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
