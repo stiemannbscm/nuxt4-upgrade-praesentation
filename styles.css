@@ -430,6 +430,29 @@ code {
   line-height: 1.38;
 }
 
+/* Slide 11: CLI — compact text for split layout */
+.slide--cli .split__text {
+  font-size: 34px;
+}
+
+.slide--cli .split__text .lead {
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.slide--cli .split__text li {
+  margin-bottom: 10px;
+  line-height: 1.36;
+}
+
+.slide--cli .split__text ol {
+  margin-bottom: 12px;
+}
+
+.slide--cli .split__text code {
+  font-size: 30px;
+}
+
 /* Slide 13: QS */
 .slide--qs .slide-body {
   display: flex;
