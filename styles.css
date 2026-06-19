@@ -594,12 +594,22 @@ tbody tr.total td {
   line-height: 1.38;
 }
 
-.slide--architektur .split__image img {
+.slide--architektur .split__image img,
+.slide--architektur .architektur-diagram {
   width: 100%;
   height: auto;
   max-height: 780px;
   object-fit: contain;
+}
+
+.split__image--diagram {
+  min-height: 520px;
   padding: 12px;
+}
+
+.architektur-diagram {
+  display: block;
+  max-width: 100%;
 }
 
 /* Intro hero slide */

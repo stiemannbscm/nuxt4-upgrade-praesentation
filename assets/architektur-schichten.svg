@@ -4,16 +4,15 @@
       <stop offset="0%" stop-color="#0099ff" stop-opacity="0.14"/>
       <stop offset="100%" stop-color="#0099ff" stop-opacity="0.06"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
       <path d="M0,0 L6,3 L0,6 Z" fill="#0099ff"/>
     </marker>
   </defs>
 
   <rect width="560" height="620" rx="12" fill="#f4f7fa"/>
 
-  <text x="280" y="38" text-anchor="middle" fill="#0a2540" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">nuxt4-upgrade  Schichtenmodell</text>
+  <text x="280" y="38" text-anchor="middle" fill="#0a2540" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="700">nuxt4-upgrade – Schichtenmodell</text>
 
-  <!-- Application layers -->
   <g font-family="Segoe UI, system-ui, sans-serif">
     <rect x="48" y="62" width="464" height="72" rx="10" fill="url(#layerGrad)" stroke="#0099ff" stroke-width="2"/>
     <text x="72" y="92" fill="#0099ff" font-size="18" font-weight="700">CLI</text>
@@ -36,11 +35,9 @@
     <text x="72" y="462" fill="#5a6b7d" font-size="15">Optionale Folgearbeiten (begrenzter Scope)</text>
   </g>
 
-  <!-- Connector -->
-  <line x1="280" y1="490" x2="280" y2="518" stroke="#0099ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="280" y1="490" x2="280" y2="518" stroke="#0099ff" stroke-width="2" marker-end="url(#arrowDown)"/>
   <text x="280" y="512" text-anchor="middle" fill="#0099ff" font-size="14" font-weight="600" font-family="Segoe UI, system-ui, sans-serif">orchestriert</text>
 
-  <!-- External Nuxt layer -->
   <rect x="48" y="528" width="464" height="68" rx="10" fill="#0a2540"/>
   <text x="280" y="558" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">Offizielle Nuxt-Tools</text>
   <text x="280" y="582" text-anchor="middle" fill="#b8c9d9" font-family="Segoe UI, system-ui, sans-serif" font-size="14">nuxi upgrade · Typecheck · Build · Codemods</text>
