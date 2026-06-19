@@ -40,6 +40,7 @@ window.PRESENTER_GUIDE = {
       { term: "Abgrenzung", desc: "Bewusster Ausschluss von Funktionen — zeigt, was das Projekt nicht leisten soll." },
       { term: "Teilautomatisierung", desc: "Wiederkehrende Schritte automatisiert, Entscheidungen beim Menschen." },
       { term: "Orchestrierung", desc: "Steuerung und Reihenfolge vorhandener Tools — hier ohne eigene Migrations-Engine." },
+      { term: "Scope", desc: "Klare Begrenzung optionaler Agenten auf definierte Folgeaufgaben — kein generelles Refactoring." },
       { term: "Codemods", desc: "Automatisierte Code-Transformationen, z. B. durch offizielle Nuxt-Werkzeuge." }
     ]
   },
