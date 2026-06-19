@@ -12,7 +12,7 @@
     <div id="stage">
 <div id="presentation" class="presentation">
     <!-- Slide 1: Titel -->
-    <section class="slide slide--title active" data-note="Guten Tag, mein Name ist Sören Tiemann. Ich präsentiere mein Abschlussprojekt als Fachinformatiker für Anwendungsentwicklung bei der basecom — Thema wie auf der Folie: nuxt4-upgrade zur Migration von Nuxt 3 auf Nuxt 4.">
+    <section class="slide slide--title active" data-note="Guten Tag, mein Name ist Sören Tiemann, Fachinformatiker für Anwendungsentwicklung bei der basecom. Mein Abschlussprojekt Sommer 2026 ist die Entwicklung eines Update-Agenten zur standardisierten Migration von Nuxt-3-Webanwendungen auf Nuxt 4 — das CLI-Werkzeug nuxt4-upgrade.">
       <div class="slide-title__content">
         <div class="slide-logos slide-logos--title"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom logo--large"></div>
         <p class="eyebrow">Abschlussprüfung Sommer 2026</p>
@@ -26,7 +26,7 @@
     </section>
 
     <!-- Slide 2: Agenda -->
-    <section class="slide" data-note="Kurzer Überblick über die sechs Kapitel der Agenda — von Unternehmen und Anlass über Ziel und Wirtschaftlichkeit bis Implementierung, Abnahme und Fazit.">
+    <section class="slide" data-note="Ich gliedere die Präsentation in sechs Kapitel. Zuerst Unternehmen und Projektanlass mit Selbstvorstellung, basecom, Projektumfeld und Nuxt-EOL. Dann Ziel und Wirtschaftlichkeit mit CLI-Werkzeug, Make-or-Buy und Amortisation. Anschließend Vorgehen und Architektur mit Wasserfall, Schichtenmodell und modularer Aufbau. Der Schwerpunkt ist die Implementierung — CLI, Modul-Workflow, Agenten und QS. Zum Schluss Abnahme und Soll-Ist sowie Fazit, Lessons Learned und npm-Paket als Ausblick.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Agenda</h2>
@@ -74,7 +74,7 @@
     </section>
 
     <!-- Slide 3: Selbst- & Unternehmensvorstellung -->
-    <section class="slide slide--intro-hero" data-agenda="0" data-note="Links meine Selbstvorstellung — Alter, Herkunft, Ausbildung zum Fullstack Developer bei basecom. Rechts basecom als Unternehmen: IT-Dienstleister, Standorte und Schwerpunkte E-Commerce, PIM, Datenintegration.">
+    <section class="slide slide--intro-hero" data-agenda="0" data-note="Mein Name ist Sören Tiemann, ich bin 30 Jahre alt und komme aus der Region Hamburg. Bei basecom in Osnabrück habe ich die Ausbildung zum Fullstack Developer absolviert. basecom ist IT-Dienstleister für E-Commerce und digitale Plattformen mit über 250 Mitarbeitenden und Hauptsitz in Osnabrück, Standorte in Deutschland, USA und Rumänien, Schwerpunkte E-Commerce, PIM und Datenintegration.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Selbstvorstellung &amp; Unternehmen</h2>
@@ -115,7 +115,7 @@
     </section>
 
     <!-- Slide 4: Projektumfeld -->
-    <section class="slide slide--umfeld" data-agenda="0" data-note="Internes Werkzeug für das Development-Team in laufenden Kundenprojekten. Organisatorisch Projektbetreuer als Schnittstelle, technisch Git, Nuxt-Projekte und Node.js — eigenverantwortlich nach Team-Standards.">
+    <section class="slide slide--umfeld" data-agenda="0" data-note="Das Projekt ist interne Tool-Entwicklung für das Development-Team, ausgelegt für laufende Kundenprojekte. Organisatorisch ist der Projektbetreuer meine Schnittstelle für fachliche Begleitung, Review und Abnahme. Technisch arbeite ich in Git und GitHub auf Nuxt-Projekten mit Node.js und Package Manager — eigenverantwortlich nach Team-Standards mit TypeScript, Code Review und Coding Guidelines.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektumfeld</h2>
@@ -131,7 +131,7 @@
     </section>
 
     <!-- Slide 5: Projektanlass & Ausgangslage -->
-    <section class="slide slide--anlass" data-note="Anlass: Nuxt-3-Support endet zum 31.07.2026. Die drei Bullets: ohne Standard manuell oder mit Agenten, Doppelarbeit trotz gleichem Kernablauf, schwer nachvollziehbar im Code Review. Die Kernfrage in der Box leitet zum Projektziel." data-agenda="0">
+    <section class="slide slide--anlass" data-note="Anlass ist die Veröffentlichung von Nuxt 4; der Support für Nuxt 3 endet zum 31.07.2026. Migrationen laufen rein manuell oder mit Coding-Agenten, aber ohne einheitliches Prompting. Der Zeitaufwand bei wiederkehrenden Aufgaben ist hoch — für offizielle Module ist der Ablauf im Kern gleich, trotzdem müssen Docs jedes Mal neu zusammengetragen werden. Das führt zu unterschiedlichen Ergebnissen, die im Code Review schwer nachvollziehbar sind. Daraus folgt die Kernfrage: Wie lassen sich wiederkehrende Migrationsaufgaben optimieren, um Zeitaufwand und Doppelarbeit zu reduzieren?" data-agenda="0">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektanlass &amp; Ausgangslage</h2>
@@ -148,7 +148,7 @@
     </section>
 
     <!-- Slide 6: Projektziel & Abgrenzung -->
-    <section class="slide slide--ziel" data-note="Lead: Zeit sparen, Kontrolle beim Entwickler. Links Ziel mit CLI, Teilautomatisierung und Modul-Workflow. Rechts Abgrenzung: keine Vollautomatisierung, bewusst CLI, Nuxt-Tools orchestrieren statt ersetzen." data-agenda="1">
+    <section class="slide slide--ziel" data-note="Wiederkehrende Aufgaben sollen gebündelt werden — Zeit sparen, Kontrolle beim Entwickler. Ziel ist das CLI nuxt4-upgrade als geführter Migrationsprozess mit Teilautomatisierung von Nuxt 3 auf 4, inklusive Analyse, Artefakten, Modul-Workflow und optional Agenten für Restarbeit. Abgegrenzt ist Vollautomatisierung — der Entwickler entscheidet. Bewusst keine GUI, sondern CLI. Das Werkzeug orchestriert Nuxt-Tools und ersetzt sie nicht." data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektziel &amp; Abgrenzung</h2>
@@ -177,7 +177,7 @@
     </section>
 
     <!-- Slide 7: Projektkosten -->
-    <section class="slide slide--wirtschaft" data-note="Einmalige Projektkosten — in Tabelle und Formeln: Entwicklung 80 Stunden, Betreuung 5,5 Stunden, Gesamtkosten 9.735 Euro." data-agenda="1">
+    <section class="slide slide--wirtschaft" data-note="Die einmaligen Projektkosten setzen sich aus 80 Stunden Entwicklung zum Satz von 110 Euro — das sind 8.800 Euro — und 5,5 Stunden Betreuung, Abstimmung und Abnahme zum Satz von 170 Euro, also 935 Euro. In Summe ergeben das 9.735 Euro Gesamtkosten, wie in Tabelle und Formeln dargestellt." data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektkosten</h2>
@@ -222,7 +222,7 @@
     </section>
 
     <!-- Slide 8: Amortisationsrechnung & Make-or-Buy -->
-    <section class="slide slide--wirtschaft" data-note="Einsparung pro Migration in Tabelle und Formeln: 8 gegen 5 Stunden, 3 Stunden Ersparnis, Amortisation ab der 20. Migration. Unten Make-or-Buy: Eigenentwicklung." data-agenda="1">
+    <section class="slide slide--wirtschaft" data-note="Manuell rechne ich mit 8 Stunden pro Migration inklusive Modulprüfung und Validierung, mit dem CLI-Werkzeug mit circa 5 Stunden — das sind 3 Stunden Zeitersparnis pro Migration. Monetär sind das 510 Euro; die Amortisation beginnt ab der 20. Migration. Make-or-Buy fiel auf Eigenentwicklung, weil keine Standardlösung Nuxt-Kern, Modul-Inventar und flexible Agenten-Orchestrierung abdeckt." data-agenda="1">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Amortisationsrechnung &amp; Make-or-Buy</h2>
@@ -266,7 +266,7 @@
     </section>
 
     <!-- Slide 9: Vorgehensmodell -->
-    <section class="slide slide--vorgehen" data-note="Erweitertes Wasserfallmodell — die vier Bullets auf der Folie: Phasen, iterative Implementierung, Planbarkeit wegen Pflichtenheft und IHK, 80 Stunden eingehalten." data-agenda="2">
+    <section class="slide slide--vorgehen" data-note="Ich habe ein erweitertes Wasserfallmodell gewählt — klare Phasen, iterative Umsetzung an echten Test-Repositories. Die klassischen Phasen sind Analyse, Entwurf, Implementierung, Test und Dokumentation. Innerhalb der Implementierung war es iterativ — Erkenntnisse aus Test-Repos flossen zurück in Code und Planung. Pflichtenheft und IHK-Dokumentation erforderten Planbarkeit, technische Details mussten an realen Nuxt-Projekten validiert werden. Der geplante Projektumfang von 80 Stunden wurde eingehalten." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Vorgehensmodell &amp; Projektplanung</h2>
@@ -283,7 +283,7 @@
     </section>
 
     <!-- Slide 10: Architektur -->
-    <section class="slide slide--split slide--architektur" data-note="Links Stack, fünf Bausteine, drei Workflows und Orchestrierung. Rechts das Schichtenmodell von CLI über Nuxt-Tools bis Modul-Workflow, Artefakte und Agenten." data-agenda="2">
+    <section class="slide slide--split slide--architektur" data-note="Die Architektur ist modular aufgebaut — offizielle Nuxt-Tools bleiben die technische Basis. Stack ist TypeScript, Node.js und @clack/prompts, stateless ohne Datenbank. Fünf Bausteine: CLI, Projektanalyse, Modul-Workflow, Artefakte und Agenten. Drei Workflows: Kernframework, offizielle Module oder kombiniert. Nuxt-Kommandos wie nuxi upgrade, Typecheck und Build werden orchestriert, nicht ersetzt. Im Diagramm sehen Sie die Schichten von CLI über Projektanalyse und Nuxt-Tools bis Modul-Workflow, Artefakte und optional Agenten." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Architektur &amp; Technologie</h2>
@@ -336,7 +336,7 @@
     </section>
 
     <!-- Slide 11: Implementierung CLI -->
-    <section class="slide slide--split slide--cli" data-note="Nummerierte Liste: Pfad, Vorprüfung, Workflow, Bestätigung, Upgrade und Validierung. Darunter Package-Manager und compatibilityVersion. Rechts Screenshot der Projektanalyse." data-agenda="3">
+    <section class="slide slide--split slide--cli" data-note="Die CLI ist interaktiv mit kontextsensitiver Projektanalyse. Zuerst wählt der Entwickler den Projektpfad und validiert das Zielprojekt, dann folgt die Vorprüfung von package.json, Nuxt-Abhängigkeit und Package-Manager. Anschließend wählt er den Workflow — Kern, Module oder kombiniert. Kritische Schritte laufen nur nach expliziter Bestätigung; Upgrade-Schritte werden ausgeführt, protokolliert und validiert. Unterstützt werden npm, pnpm, yarn und bun; wo sinnvoll setzt das Tool future.compatibilityVersion auf 4. Rechts sehen Sie einen Testlauf der Projektanalyse." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Implementierung: CLI &amp; Projektanalyse</h2>
@@ -363,7 +363,7 @@
     </section>
 
     <!-- Slide 12: Modul-Workflow -->
-    <section class="slide slide--split slide--impl" data-note="Vier Bullets zum Modul-Workflow — Inventar, Migrationshinweise, keine Massenautomatisierung, optionale Agenten. Rechts das Sequenzdiagramm." data-agenda="3">
+    <section class="slide slide--split slide--impl" data-note="Der Modul-Workflow ist strukturiert — optional mit Agenten für Restarbeit. Alle Nuxt-Module werden gescannt und als Modul-Inventar für das Code Review erzeugt. Migrationshinweise aus offiziellen Guides werden aggregiert, ohne manuelles Zusammentragen. Modulspezifische Änderungen bleiben nachvollziehbar — keine blinde Massenautomatisierung. Für Restarbeit können optionale Agenten-CLIs mit begrenztem Scope eingebunden werden; der Entwickler behält die Kontrolle. Das Sequenzdiagramm zeigt den Ablauf." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Modul-Workflow &amp; Agenten</h2>
@@ -385,7 +385,7 @@
     </section>
 
     <!-- Slide 13: QS -->
-    <section class="slide slide--qs" data-note="Lead: Nachvollziehbarkeit. Spalten Validierung, Artefakte und Qualitätssicherung — die Punkte auf der Folie kurz durchgehen." data-agenda="3">
+    <section class="slide slide--qs" data-note="Nachvollziehbarkeit ist das Qualitätsziel — jeder Lauf hinterlässt überprüfbare Spuren. Bei der Validierung sind Typecheck und Build direkt im Workflow integriert; Fehler werden über Exitcodes und Logs dokumentiert. Als Artefakte entstehen Logs, Migrationsberichte, Modul-Inventare und Agenten-Instruktionen für Folgearbeiten. Qualitätssicherung heißt Nachweis ausgeführter Schritte im Code Review, Testläufe an mehreren internen Nuxt-3-Repositories, und nicht nur Happy Path, sondern unterschiedliche Modul-Komplexität." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Validierung, Artefakte &amp; Qualitätssicherung</h2>
@@ -418,7 +418,7 @@
     </section>
 
     <!-- Slide 14: Abnahme -->
-    <section class="slide slide--abnahme" data-note="Formale Abnahme, 80 Stunden wie geplant. Soll-Ist-Tabelle: Kernziele erreicht, Agenten-Anbindung angepasst und erreicht, Abgrenzung planungskonform." data-agenda="4">
+    <section class="slide slide--abnahme" data-note="Formale Abnahme durch den Projektbetreuer — Kernziele erreicht, 80 Stunden wie geplant. CLI-Werkzeug, interaktive Benutzerführung, Modul-Workflow mit Inventar und Artefakterzeugung mit Validierung sind erreicht. Die Agenten-Anbindung wurde flexibel statt fester API umgesetzt — angepasst und erreicht. Keine unkontrollierte Vollautomatisierung blieb planungskonform." data-agenda="4">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Abnahme &amp; Soll-Ist-Vergleich</h2>
@@ -440,7 +440,7 @@
     </section>
 
     <!-- Slide 15: Fazit -->
-    <section class="slide slide--fazit" data-note="Lead und drei Spalten: Ergebnis, Lessons Learned und Ausblick — jeweils die Bullets auf der Folie." data-agenda="5">
+    <section class="slide slide--fazit" data-note="Standardisierung ohne Kontrollverlust — erweiterbar für künftige Nuxt-Versionen. Ergebnis: geführter Migrationsprozess mit voller Entwicklerkontrolle, weniger Rechercheaufwand und einheitlicher Ablauf im Team. Lessons Learned: Automatisierung ersetzt keine fachliche Modulprüfung; frühe Tests an echten Repositories sparen späte Korrekturen. Ausblick: weitere Modulregeln und Validierungsschritte, Übertragbarkeit auf spätere Nuxt-Versionen, Bereitstellung als npm-Paket im Unternehmen." data-agenda="5">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Fazit, Lessons Learned &amp; Ausblick</h2>
@@ -473,7 +473,7 @@
     </section>
 
     <!-- Slide 16: Abschluss -->
-    <section class="slide slide--title" data-note="Vielen Dank für Ihre Aufmerksamkeit — ich freue mich auf Ihre Fragen im Fachgespräch." data-agenda="5">
+    <section class="slide slide--title" data-note="Damit danke ich für Ihre Aufmerksamkeit und freue mich auf Ihre Fragen im Fachgespräch." data-agenda="5">
       <div class="slide-title__content">
         <div class="slide-logos slide-logos--title"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom logo--large"></div>
         <h1>Vielen Dank für Ihre Aufmerksamkeit!</h1>
