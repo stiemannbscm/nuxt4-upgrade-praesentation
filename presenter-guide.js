@@ -59,10 +59,11 @@ window.PRESENTER_GUIDE = {
   },
   8: {
     glossary: [
-      { term: "Wasserfallmodell", desc: "Phasenorientiertes Vorgehen: Analyse → Entwurf → Implementierung → Test → Doku." },
-      { term: "Erweitertes Wasserfallmodell", desc: "Klare Phasen, aber iterative Feinjustierung innerhalb der Implementierung an Testprojekten." },
-      { term: "Risikopuffer", desc: "Eingeplante Reservezeit (8 h) für unvorhergesehene Anpassungen, z. B. Agenten-Pivot." },
-      { term: "@clack/prompts", desc: "Node.js-Bibliothek für interaktive CLI-Eingaben (Auswahl, Bestätigung)." }
+      { term: "Wasserfallmodell", desc: "Phasenorientiertes Vorgehen: Analyse → Entwurf → Implementierung → Test → Dokumentation." },
+      { term: "Erweitertes Wasserfallmodell", desc: "Klare Phasen, aber iterative Feinjustierung innerhalb der Implementierung an Test-Repositories." },
+      { term: "Risikopuffer", desc: "8 h Reserve — u. a. für den Agenten-Pivot (feste API → CLI-Erkennung)." },
+      { term: "Soll-Ist-Abweichung", desc: "Geplante vs. tatsächliche Umsetzung — hier CLI und Agenten-Anbindung angepasst, Ziele erreicht." },
+      { term: "@clack/prompts", desc: "Node.js-Bibliothek für interaktive CLI-Eingaben — ersetzt geplante Parameter-CLI." }
     ]
   },
   9: {

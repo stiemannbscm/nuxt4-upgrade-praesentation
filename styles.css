@@ -390,6 +390,62 @@ code {
   line-height: 1.38;
 }
 
+/* Slide 9: Vorgehensmodell & Projektplanung */
+.slide--vorgehen .slide-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+  padding-bottom: 24px;
+}
+
+.slide--vorgehen .lead {
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.slide--vorgehen .columns {
+  flex: 1;
+  align-content: start;
+  align-items: start;
+  gap: 40px;
+}
+
+.slide--vorgehen .column h3 {
+  margin-bottom: 8px;
+}
+
+.slide--vorgehen .column h3 + ul.compact {
+  margin-bottom: 16px;
+}
+
+.slide--vorgehen .column ul.compact li {
+  margin-bottom: 8px;
+  line-height: 1.38;
+}
+
+.slide--vorgehen .table--plan {
+  width: 100%;
+  font-size: 34px;
+}
+
+.slide--vorgehen .table--plan th,
+.slide--vorgehen .table--plan td {
+  padding: 8px 14px;
+}
+
+.slide--vorgehen .table--plan .num {
+  width: 28%;
+  text-align: right;
+}
+
+.highlight-box--compact {
+  margin-top: 16px;
+  padding: 16px 22px;
+  font-size: 34px;
+  line-height: 1.35;
+  flex-shrink: 0;
+}
+
 .timing {
   margin-top: 24px;
   padding: 18px 22px;

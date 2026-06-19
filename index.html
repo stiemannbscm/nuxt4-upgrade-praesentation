@@ -269,30 +269,45 @@
     </section>
 
     <!-- Slide 9: Vorgehensmodell -->
-    <section class="slide" data-note="Als Vorgehensmodell habe ich ein erweitertes Wasserfallmodell gewählt, weil Ziele und Abgrenzung von Beginn an klar waren — typisch für ein betriebliches Pflichtenheft-Projekt.&#10;&#10;Innerhalb der Implementierungsphase habe ich iterativ an echten Testprojekten nachgeschärft: Was funktioniert in der Praxis? Wo hakt die CLI? Diese Erkenntnisse sind zurück in Planung und Code geflossen.&#10;&#10;Die größte Soll-Ist-Abweichung betraf die Agenten-Anbindung: Statt einer festen API-Lösung habe ich auf flexible Erkennung über installierte CLI-Tools umgestellt. Das war wartbarer und besser an unsere Infrastruktur anpassbar — der eingeplante Risikopuffer hat diesen Pivot abgefedert." data-agenda="2">
+    <section class="slide slide--vorgehen" data-note="Als Vorgehensmodell habe ich ein erweitertes Wasserfallmodell gewählt — typisch für ein betriebliches Pflichtenheft-Projekt mit IHK-Dokumentationspflicht.&#10;&#10;Zur Begründung: Projektziele und Abgrenzung standen von Beginn an fest und erfordern planbare Phasen. Gleichzeitig mussten technische Details — CLI-Ablauf, Modul-Workflow, Validierung — an echten Nuxt-Test-Repositories erprobt werden. Deshalb blieben die Phasen klar getrennt, die Umsetzung innerhalb der Implementierung aber iterativ.&#10;&#10;Kurz zur Zeitplanung: Analyse 8 Stunden für Anforderungen und Make-or-Buy, Entwurf 12 Stunden für Architektur und Workflows, Implementierung 35 Stunden als Schwerpunkt, Test und Abnahme 7 Stunden, Dokumentation 10 Stunden. Der Risikopuffer von 8 Stunden war bewusst eingeplant.&#10;&#10;Qualitätssicherung lief über Testläufe an internen Repositories, Review mit dem Projektbetreuer und protokollierte Artefakte nach jedem Lauf.&#10;&#10;Die größte Soll-Ist-Abweichung: Statt Parameter-CLI wurde eine interaktive CLI mit @clack/prompts umgesetzt — besser bedienbar. Statt fester KI-API flexibler Erkennung installierter Agenten-CLIs — wartbarer im Betrieb. Der Risikopuffer hat diesen Pivot aufgefangen.&#10;&#10;Technisch übersetzt sich das in der nächsten Folie in die modulare Architektur." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Vorgehensmodell &amp; Projektplanung</h2>
       </header>
       <div class="slide-body">
-<p class="lead">Erweitertes Wasserfallmodell — klare Phasen mit iterativer Feinjustierung an realen Testprojekten</p>
-        <ul>
-          <li><strong>Begründung:</strong> Projektziele und Dokumentationspflicht erfordern Planbarkeit; technische Details mussten an echten Repositories validiert werden</li>
-          <li><strong>Qualitätssicherung:</strong> Testläufe, Peer-Review mit Projektbetreuer, protokollierte Artefakte nach jedem Lauf</li>
-          <li><strong>Soll-Ist-Anpassung:</strong> Parameter-CLI → interaktive CLI (<code>@clack/prompts</code>) | Feste KI-API → flexible Agenten-Erkennung</li>
-        </ul>
-        <table>
-          <thead><tr><th>Phase</th><th>Stunden</th><th>Inhalt (Kurz)</th></tr></thead>
-          <tbody>
-            <tr><td>Analyse</td><td>8 h</td><td>Anforderungen, Make-or-Buy, Ist-Prozess</td></tr>
-            <tr><td>Entwurf</td><td>12 h</td><td>Architektur, Workflows, Schnittstellen</td></tr>
-            <tr><td>Implementierung</td><td>35 h</td><td>CLI, Module, Agenten, Validierung</td></tr>
-            <tr><td>Test &amp; Abnahme</td><td>7 h</td><td>Testläufe, Abnahme mit Betreuer</td></tr>
-            <tr><td>Dokumentation</td><td>10 h</td><td>Projektdokumentation und Anleitung</td></tr>
-            <tr><td>Risikopuffer</td><td>8 h</td><td>Unvorhergesehenes, z. B. Agenten-Pivot</td></tr>
-            <tr class="total"><td><strong>Gesamt</strong></td><td><strong>80 h</strong></td><td></td></tr>
-          </tbody>
-        </table>
+        <p class="lead">Erweitertes Wasserfallmodell — klare Phasen, iterative Umsetzung an echten Test-Repositories</p>
+        <div class="columns">
+          <div class="column">
+            <h3>Vorgehensmodell</h3>
+            <ul class="compact">
+              <li>Klassische Phasen: Analyse → Entwurf → Implementierung → Test → Dokumentation</li>
+              <li>Implementierung iterativ — Erkenntnisse aus Test-Repos fließen zurück in Code und Planung</li>
+            </ul>
+            <h3>Begründung</h3>
+            <ul class="compact">
+              <li>Pflichtenheft und IHK-Dokumentation erfordern Planbarkeit</li>
+              <li>Technische Details mussten an realen Nuxt-Projekten validiert werden</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Zeitplanung (80 h)</h3>
+            <table class="table--compact table--plan">
+              <thead>
+                <tr><th>Phase</th><th class="num">Stunden</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Analyse</td><td class="num">8 h</td></tr>
+                <tr><td>Entwurf</td><td class="num">12 h</td></tr>
+                <tr><td>Implementierung</td><td class="num">35 h</td></tr>
+                <tr><td>Test &amp; Abnahme</td><td class="num">7 h</td></tr>
+                <tr><td>Dokumentation</td><td class="num">10 h</td></tr>
+                <tr><td>Risikopuffer</td><td class="num">8 h</td></tr>
+                <tr class="total"><td><strong>Gesamt</strong></td><td class="num"><strong>80 h</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <blockquote class="highlight-box highlight-box--compact">Soll-Ist: Parameter-CLI → interaktive CLI (<code>@clack/prompts</code>) · Feste KI-API → flexible Agenten-Erkennung</blockquote>
       </div>
     </section>
 
