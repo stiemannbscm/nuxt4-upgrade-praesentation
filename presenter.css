@@ -152,45 +152,6 @@ body {
   color: #334155;
 }
 
-.presenter-faq {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.presenter-faq__item {
-  padding: 14px 16px;
-  background: #fff;
-  border-left: 4px solid var(--bc-blue);
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 1px 3px rgba(10, 37, 64, 0.06);
-}
-
-.presenter-faq__question {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--bc-navy);
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
-
-.presenter-faq__question::before {
-  content: "F: ";
-  color: var(--bc-blue);
-}
-
-.presenter-faq__answer {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #334155;
-}
-
-.presenter-faq__answer::before {
-  content: "A: ";
-  font-weight: 700;
-  color: #5a6b7d;
-}
-
 .presenter-jump label {
   font-size: 12px;
   text-transform: uppercase;

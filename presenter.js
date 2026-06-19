@@ -12,8 +12,6 @@
   const presenterExtra = document.getElementById("presenterExtra");
   const glossaryBlock = document.getElementById("glossaryBlock");
   const glossaryList = document.getElementById("glossaryList");
-  const faqBlock = document.getElementById("faqBlock");
-  const faqList = document.getElementById("faqList");
 
   let total = 0;
   let current = 0;
@@ -71,45 +69,14 @@
     glossaryBlock.hidden = false;
   }
 
-  function renderFaq(items) {
-    if (!faqList || !faqBlock) return;
-    faqList.innerHTML = "";
-
-    if (!items || !items.length) {
-      faqBlock.hidden = true;
-      return;
-    }
-
-    items.forEach(function (item) {
-      const article = document.createElement("article");
-      article.className = "presenter-faq__item";
-
-      const question = document.createElement("p");
-      question.className = "presenter-faq__question";
-      question.textContent = item.q;
-
-      const answer = document.createElement("p");
-      answer.className = "presenter-faq__answer";
-      answer.textContent = item.a;
-
-      article.appendChild(question);
-      article.appendChild(answer);
-      faqList.appendChild(article);
-    });
-
-    faqBlock.hidden = false;
-  }
-
   function renderGuide(index) {
     const slideGuide = guide[index] || {};
     const glossary = slideGuide.glossary || [];
-    const faq = slideGuide.faq || [];
 
     renderGlossary(glossary);
-    renderFaq(faq);
 
     if (presenterExtra) {
-      presenterExtra.hidden = !glossary.length && !faq.length;
+      presenterExtra.hidden = !glossary.length;
     }
   }
 
