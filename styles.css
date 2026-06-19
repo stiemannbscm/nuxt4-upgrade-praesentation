@@ -375,53 +375,19 @@ code {
 }
 
 .slide--ziel .lead {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-shrink: 0;
 }
 
-.ziel-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+.slide--ziel .columns {
   flex: 1;
   align-content: start;
+  height: auto;
 }
 
-.ziel-grid__col {
-  padding: 24px 28px;
-  border-radius: 12px;
-  background: var(--bc-gray-100);
-  border-top: 4px solid var(--bc-blue);
-}
-
-.ziel-grid__col--abgrenzung {
-  border-top-color: var(--bc-gray-600);
-}
-
-.ziel-grid__col h3 {
-  font-size: var(--text-h3);
-  color: var(--bc-blue);
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--bc-gray-200);
-}
-
-.ziel-grid__col--abgrenzung h3 {
-  color: var(--bc-navy);
-}
-
-.ziel-grid__col ul.compact {
-  padding-left: 28px;
-  margin: 0;
-}
-
-.ziel-grid__col ul.compact li {
-  margin-bottom: 10px;
+.slide--ziel .column ul.compact li {
+  margin-bottom: 8px;
   line-height: 1.38;
-}
-
-.ziel-grid__col ul.compact li:last-child {
-  margin-bottom: 0;
 }
 
 .timing {
