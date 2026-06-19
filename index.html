@@ -26,7 +26,7 @@
     </section>
 
     <!-- Slide 2: Agenda -->
-    <section class="slide" data-note="Zuerst gebe ich Ihnen einen kurzen Überblick über den Aufbau meiner Präsentation.&#10;&#10;Ich stelle mich und basecom vor, erläutere Projektumfeld und Anlass, dann Zielsetzung und Wirtschaftlichkeit. Den Schwerpunkt bildet die Implementierung des Werkzeugs. Abschließend zeige ich Abnahme, Soll-Ist-Vergleich und ein Fazit mit Ausblick.">
+    <section class="slide" data-note="Zuerst gebe ich Ihnen einen kurzen Überblick über den Aufbau meiner Präsentation — sechs Kapitel von Unternehmen und Anlass über Ziel und Wirtschaftlichkeit bis zu Implementierung, Abnahme und Fazit.&#10;&#10;Ich stelle mich und basecom vor, erläutere Projektumfeld und Anlass, dann Zielsetzung und Wirtschaftlichkeit. Den Schwerpunkt bildet die Implementierung des Werkzeugs. Abschließend zeige ich Abnahme, Soll-Ist-Vergleich und ein Fazit mit Ausblick.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Agenda</h2>
@@ -48,7 +48,7 @@
           <li>
             <span class="agenda-list__text">
               <span class="agenda-list__title">Vorgehen &amp; Architektur</span>
-              <span class="agenda-list__sub">Wasserfall · Phasenplan · modularer Aufbau</span>
+              <span class="agenda-list__sub">Wasserfall · Schichtenmodell · modularer Aufbau</span>
             </span>
           </li>
           <li>
@@ -115,36 +115,34 @@
     </section>
 
     <!-- Slide 4: Projektumfeld -->
-    <section class="slide" data-agenda="0" data-note="Zum Projektumfeld: Das Projekt entstand aus dem Bedarf im Development-Team bei basecom — als internes Werkzeug für den Produktivbetrieb, nicht als isolierte Nebenaufgabe.&#10;&#10;Das Team betreut mehrere Nuxt-Anwendungen in Kundenprojekten und ist die Zielgruppe des CLI — nicht aber meine direkte Projektschnittstelle während der Entwicklung.&#10;&#10;Organisatorisch war mein Projektbetreuer die einzige menschliche Schnittstelle: fachliche Einordnung, Reviews und Abnahme. Technisch arbeitet das Werkzeug in Git-Repositories auf bestehenden Nuxt-3-Projekten im Node.js-Ökosystem — Git/GitHub, Package Manager und die Zielcodebases gehören zum betrieblichen Umfeld. Details wie Nuxt-CLI oder Agenten-Anbindung erläutere ich später bei Architektur und Implementierung.&#10;&#10;Die Entwicklung habe ich eigenverantwortlich umgesetzt und mich an Team-Standards wie Code Review, TypeScript und etablierte Git-Workflows orientiert.&#10;&#10;Damit ist der Rahmen klar — im nächsten Schritt erläutere ich, warum genau in diesem Umfeld ein Migrationswerkzeug gebraucht wurde.">
+    <section class="slide slide--umfeld" data-agenda="0" data-note="Zum Projektumfeld: Das Projekt entstand aus dem Bedarf im Development-Team bei basecom — als internes Werkzeug für den Produktivbetrieb, nicht als isolierte Nebenaufgabe.&#10;&#10;Das Team betreut mehrere Nuxt-Anwendungen in Kundenprojekten und ist die Zielgruppe des CLI — nicht aber meine direkte Projektschnittstelle während der Entwicklung.&#10;&#10;Organisatorisch war mein Projektbetreuer die einzige menschliche Schnittstelle: fachliche Einordnung, Reviews und Abnahme. Technisch arbeitet das Werkzeug in Git-Repositories auf bestehenden Nuxt-3-Projekten im Node.js-Ökosystem — Git/GitHub, Package Manager und die Zielcodebases gehören zum betrieblichen Umfeld.&#10;&#10;Die Entwicklung habe ich eigenverantwortlich umgesetzt und mich an Team-Standards wie Code Review, TypeScript und etablierte Git-Workflows orientiert.&#10;&#10;Damit ist der Rahmen klar — im nächsten Schritt erläutere ich, warum genau in diesem Umfeld ein Migrationswerkzeug gebraucht wurde.">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektumfeld</h2>
       </header>
       <div class="slide-body">
         <p class="lead">Interne Tool-Entwicklung für das Development-Team — ausgelegt für laufende Kundenprojekte</p>
-        <ul>
+        <ul class="compact">
           <li><strong>Zielgruppe:</strong> Development-Team mit produktiven <strong>Nuxt-Anwendungen</strong> im Kundenprojektgeschäft</li>
-          <li><strong>Projektkontext:</strong> Werkzeug für wiederkehrende Migrationen im betrieblichen Entwicklungsalltag</li>
-          <li><strong>Organisatorische Schnittstelle:</strong> Projektbetreuer (fachliche Begleitung, Review &amp; Abnahme)</li>
-          <li><strong>Technische Schnittstellen:</strong> Git/GitHub · Nuxt-Anwendungen als Zielprojekte · Node.js &amp; Package Manager</li>
-          <li>Orientierung an Team-Standards: Code Review, TypeScript, etablierte Git-Workflows</li>
+          <li><strong>Organisatorisch:</strong> Projektbetreuer als Schnittstelle — fachliche Begleitung, Review &amp; Abnahme</li>
+          <li><strong>Technisch:</strong> Git/GitHub · Nuxt-Projekte als Zielcodebases · Node.js &amp; Package Manager</li>
+          <li>Eigenverantwortliche Umsetzung nach Team-Standards (TypeScript, Code Review, Git-Workflows)</li>
         </ul>
       </div>
     </section>
 
     <!-- Slide 5: Projektanlass & Ausgangslage -->
-    <section class="slide" data-note="Der konkrete Anlass ist das Nuxt-3-End-of-Life zum 31. Juli 2026 — bestehende Projekte müssen rechtzeitig auf Nuxt 4 gehoben werden.&#10;&#10;In der Ausgangslage liefen Migrationen ohne gemeinsamen Standard: Entweder vollständig manuell — jeder Schritt per Hand — oder mit Coding-Agenten, aber ohne einheitliches Prompting. Beides führt dazu, dass jede Migration anders abläuft und andere Ergebnisse liefert.&#10;&#10;Dazu kommt ein hoher Zeitaufwand: Leitfäden, Release Notes und Moduldokumentationen müssen immer wieder zusammengetragen werden — obwohl die Kernaufgaben von Migration zu Migration im Grunde gleich sind. Trotzdem startet man praktisch jedes Mal bei null. Im Code Review fehlt oft die Nachvollziehbarkeit — welche Schritte liefen, was wurde am Modul-Inventar geprüft?&#10;&#10;Die Kernfrage lautet deshalb: Wie lassen sich diese wiederkehrenden Aufgaben optimieren, um bei Migrationen messbar Zeit zu sparen? Darauf leite ich auf der nächsten Folie das Projektziel ab." data-agenda="0">
+    <section class="slide slide--anlass" data-note="Der konkrete Anlass ist das Nuxt-3-End-of-Life zum 31. Juli 2026 — bestehende Projekte müssen rechtzeitig auf Nuxt 4 gehoben werden.&#10;&#10;In der Ausgangslage liefen Migrationen ohne gemeinsamen Standard: Entweder vollständig manuell — jeder Schritt per Hand — oder mit Coding-Agenten, aber ohne einheitliches Prompting. Beides führt dazu, dass jede Migration anders abläuft und andere Ergebnisse liefert.&#10;&#10;Dazu kommt ein hoher Zeitaufwand: Leitfäden, Release Notes und Moduldokumentationen müssen immer wieder zusammengetragen werden — obwohl die Kernaufgaben von Migration zu Migration im Grunde gleich sind. Im Code Review fehlt oft die Nachvollziehbarkeit — welche Schritte liefen, was wurde am Modul-Inventar geprüft? Es gibt keinen einheitlichen Standardprozess für Modul-Inventar und Validierung nach dem Upgrade.&#10;&#10;Die Kernfrage lautet deshalb: Wie lassen sich diese wiederkehrenden Aufgaben optimieren, um bei Migrationen messbar Zeit zu sparen? Darauf leite ich auf der nächsten Folie das Projektziel ab." data-agenda="0">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Projektanlass &amp; Ausgangslage</h2>
       </header>
       <div class="slide-body">
-<p class="lead">Anlass: Nuxt 4 veröffentlicht; Support für Nuxt 3 endet zum <strong>31.07.2026</strong></p>
-        <ul>
-          <li>Migrationen <strong>rein manuell</strong> — Schritt für Schritt per Hand — oder mit Coding-Agenten, aber <strong>ohne einheitliches Prompting</strong></li>
-          <li>Hoher Zeitaufwand: Infos aus Leitfäden, Release Notes und Modul-Docs zusammentragen — bei <strong>wiederkehrenden Aufgaben</strong> jedes Mal wieder von vorn</li>
+        <p class="lead">Anlass: Nuxt 4 veröffentlicht; Support für Nuxt 3 endet zum <strong>31.07.2026</strong></p>
+        <ul class="compact">
+          <li>Migrationen <strong>rein manuell</strong> oder mit Coding-Agenten — aber <strong>ohne einheitliches Prompting</strong></li>
+          <li>Hoher Zeitaufwand bei <strong>wiederkehrenden Aufgaben</strong> — Leitfäden und Modul-Docs jedes Mal neu zusammentragen</li>
           <li>Unterschiedliche Ergebnisse pro Migration — im Code Review schwer nachvollziehbar</li>
-          <li>Kein einheitlicher Standardprozess für Modul-Inventar und Validierung nach dem Upgrade</li>
         </ul>
         <blockquote class="highlight-box">Kernfrage: Wie lassen sich wiederkehrende Migrationsaufgaben optimieren, um Zeitaufwand und Doppelarbeit zu reduzieren?</blockquote>
       </div>
@@ -308,87 +306,76 @@
     </section>
 
     <!-- Slide 11: Implementierung CLI -->
-    <section class="slide slide--split" data-note="Hier der Kern der Implementierung: die geführte CLI. Der Entwickler startet nuxt4-upgrade im Projektverzeichnis und durchläuft die Schritte interaktiv.&#10;&#10;Vor jedem kritischen Eingriff — etwa dem Ausführen von Codemods oder dem Anpassen von Konfigurationsdateien — erfolgt eine Bestätigung. So bleibt transparent, was das Werkzeug tut.&#10;&#10;Zuerst analysiert das Tool das Projekt: Nuxt-Version, Module, Abhängigkeiten. Daraus entsteht eine Grundlage für die weiteren Schritte. Vertrauen entsteht durch Transparenz, nicht durch Blindautomatisierung — das war eine zentrale Designentscheidung." data-agenda="3">
+    <section class="slide slide--split slide--impl" data-note="Hier der Kern der Implementierung: die geführte CLI. Der Entwickler startet nuxt4-upgrade im Projektverzeichnis und durchläuft die Schritte interaktiv.&#10;&#10;Der Ablauf im Detail: Projektpfad wählen und Zielprojekt validieren. Vorprüfung von package.json, Nuxt-Abhängigkeit und Package Manager. Workflow auswählen — Kern, Module oder kombiniert. Vor jedem kritischen Eingriff — Codemods, Konfigurationsänderungen — erfolgt eine explizite Bestätigung. Anschließend Upgrade-Schritte ausführen, protokollieren und validieren.&#10;&#10;Die Projektanalyse erkennt Nuxt-Version, Module und Package Manager — npm, pnpm, yarn oder bun. Wo sinnvoll setzt das Tool future.compatibilityVersion auf 4 zur schrittweisen Vorbereitung.&#10;&#10;Vertrauen entsteht durch Transparenz, nicht durch Blindautomatisierung — das war eine zentrale Designentscheidung. Im Screenshot sehen Sie einen echten Testlauf mit Projektanalyse." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Implementierung: CLI &amp; Projektanalyse</h2>
       </header>
       <div class="slide-body split">
         <div class="split__text">
-<p class="lead"><strong>Umsetzung:</strong> Interaktive CLI mit kontextsensitiver Projektanalyse</p>
-          <ol>
-            <li>Projektpfad wählen und Zielprojekt validieren</li>
-            <li>Vorprüfung: <code>package.json</code>, Nuxt-Abhängigkeit, Package-Manager</li>
-            <li>Workflow auswählen (Kern / Module / kombiniert)</li>
-            <li>Kritische Schritte nur nach expliziter Bestätigung</li>
-            <li>Upgrade-Schritte ausführen, protokollieren und validieren</li>
-          </ol>
-          <ul>
-            <li>Unterstützte Package-Manager: npm, pnpm, yarn, bun</li>
-            <li>Automatisches Setzen von <code>future.compatibilityVersion = 4</code> wo sinnvoll</li>
+          <p class="lead">Interaktive CLI — geführter Ablauf mit kontextsensitiver Projektanalyse</p>
+          <ul class="compact">
+            <li>Ablauf: Pfad → Validierung → Workflow-Wahl → Bestätigung → Upgrade &amp; Protokoll</li>
+            <li>Projektanalyse: Nuxt-Version, Module, Package Manager (<code>npm</code> · <code>pnpm</code> · <code>yarn</code> · <code>bun</code>)</li>
+            <li>Kritische Schritte nur nach expliziter Bestätigung — keine blinden Eingriffe</li>
+            <li>Optional: <code>future.compatibilityVersion = 4</code> zur schrittweisen V4-Vorbereitung</li>
           </ul>
         </div>
         <figure class="split__image">
-          <img src="assets/cli-projektanalyse.png" alt="CLI-Screenshot Projektanalyse">
+          <img src="assets/cli-projektanalyse.png" alt="Terminal-Screenshot: nuxt4-upgrade Projektanalyse">
         </figure>
       </div>
     </section>
 
     <!-- Slide 12: Modul-Workflow -->
-    <section class="slide slide--split" data-note="Der Modul-Workflow war der aufwendigste Teil der Implementierung. Offizielle Nuxt-Module werden inventarisiert, auf Kompatibilität geprüft und in einem strukturierten Ablauf bearbeitet.&#10;&#10;Für verbleibende manuelle oder halbautomatische Aufgaben können Agenten eingebunden werden — aber nur mit klar eingegrenzten Aufgaben, nicht als genereller Ersatz für den Entwickler.&#10;&#10;Die Umstellung von einer fest geplanten KI-API auf Erkennung installierter Agenten-CLIs war eine bewusste Soll-Ist-Anpassung: flexibler im Betrieb, weniger Abhängigkeit von einem einzelnen Anbieter, besser wartbar." data-agenda="3">
+    <section class="slide slide--split slide--impl" data-note="Der Modul-Workflow war der aufwendigste Teil der Implementierung. Offizielle Nuxt-Module werden inventarisiert, auf Kompatibilität geprüft und in einem strukturierten Ablauf bearbeitet.&#10;&#10;Das Tool scannt alle genutzten Module und erzeugt ein Modul-Inventar als Artefakt — mit Versionen und Migrationshinweisen aus offiziellen Nuxt- und Modul-Guides. Modulspezifische Änderungen bleiben nachvollziehbar; es gibt keine blinde Massenautomatisierung.&#10;&#10;Für verbleibende Aufgaben können Agenten optional eingebunden werden — Cursor, Claude Code, Codex und andere installierte CLIs. Der Scope ist klar begrenzt; generiertes Prompting ersetzt keinen Entwickler und kein Code Review.&#10;&#10;Geplant war ursprünglich eine feste KI-API — im Projektverlauf habe ich auf flexible CLI-Erkennung umgestellt: anbieterunabhängiger, wartbarer, besser an unsere Infrastruktur angepasst. Der Risikopuffer hat diesen Pivot aufgefangen." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Modul-Workflow &amp; Agenten</h2>
       </header>
       <div class="slide-body split">
         <div class="split__text">
-<p class="lead"><strong>Umsetzung:</strong> Strukturierter Modul-Workflow mit optionalem Agenten-Support</p>
-          <ul>
-            <li>Scan aller genutzten Nuxt-Module → Modul-Inventarbericht als Artefakt</li>
-            <li>Aggregierte Migrationshinweise aus offiziellen Nuxt- und Modul-Guides</li>
-            <li>Modulspezifische Änderungen bleiben nachvollziehbar — <strong>keine blinde Massenautomatisierung</strong></li>
-            <li>Erkennung installierter Agenten-CLIs (Cursor, Claude Code, Codex u. a.)</li>
-            <li>Generierte Instruktionen mit begrenztem Scope — kein unkontrolliertes Refactoring</li>
-            <li><strong>Pivot begründet:</strong> anbieterunabhängig, keine feste API-Abhängigkeit</li>
+          <p class="lead">Strukturierter Modul-Workflow — optional Agenten für Restarbeit</p>
+          <ul class="compact">
+            <li>Scan aller Nuxt-Module → <strong>Modul-Inventar</strong> als Artefakt für Code Review</li>
+            <li>Migrationshinweise aus offiziellen Guides aggregiert — kein manuelles Zusammentragen</li>
+            <li>Modulspezifische Änderungen nachvollziehbar — <strong>keine blinde Massenautomatisierung</strong></li>
+            <li>Optionale Agenten-CLIs mit begrenztem Scope — Entwickler behält die Kontrolle</li>
           </ul>
         </div>
         <figure class="split__image">
-          <img src="assets/modul-workflow.png" alt="Sequenzdiagramm Modul-Workflow">
+          <img src="assets/modul-workflow.png" alt="Sequenzdiagramm: Modul-Workflow von Inventar bis Validierung">
         </figure>
       </div>
     </section>
 
     <!-- Slide 13: QS -->
-    <section class="slide" data-note="Qualitätssicherung war kein abschließender Einmal-Test, sondern fest in den Prozess eingebaut. Nach relevanten Schritten laufen Typecheck und Build — Fehler werden so früh sichtbar.&#10;&#10;Zusätzlich erzeugt das Werkzeug Artefakte: Protokolle und Zwischenstände, mit denen im Review nachvollziehbar ist, welche Schritte ausgeführt wurden. Das unterstützt sowohl die Abnahme als auch spätere Audits in Kundenprojekten.&#10;&#10;Getestet habe ich an mehreren internen Test-Repositories mit unterschiedlicher Modul-Komplexität — nicht nur am Happy Path." data-agenda="3">
+    <section class="slide slide--qs" data-note="Qualitätssicherung war kein abschließender Einmal-Test, sondern fest in den Prozess eingebaut. Nach relevanten Schritten laufen Typecheck und Build — Fehler werden über Exitcodes und Logausgaben so früh sichtbar.&#10;&#10;Zusätzlich erzeugt das Werkzeug Artefakte: Logdateien, strukturierte Migrationsberichte, Modul-Inventare mit Versions- und Migrationsstatus sowie Agenten-Instruktionen für Folgearbeiten. Damit ist im Code Review nachvollziehbar, welche Schritte ausgeführt wurden — das adressiert direkt die Ausgangslage von Folie 5.&#10;&#10;Getestet habe ich an mehreren internen Test-Repositories mit unterschiedlicher Modul-Komplexität — nicht nur am Happy Path." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Validierung, Artefakte &amp; Qualitätssicherung</h2>
       </header>
       <div class="slide-body">
-<p class="lead">Nachvollziehbarkeit als zentrales Qualitätsziel — jeder Lauf hinterlässt überprüfbare Spuren</p>
-        <div class="cards">
-          <div class="card">
+        <p class="lead">Nachvollziehbarkeit als Qualitätsziel — jeder Lauf hinterlässt überprüfbare Spuren</p>
+        <div class="columns">
+          <div class="column">
             <h3>Validierung</h3>
-            <ul>
+            <ul class="compact">
               <li>Typecheck und Build direkt im Workflow integriert</li>
-              <li>Fehler über Exitcodes und Logausgaben dokumentiert</li>
-              <li>Frühzeitiges Erkennen regressionskritischer Probleme</li>
+              <li>Fehler über Exitcodes und Logs dokumentiert</li>
             </ul>
-          </div>
-          <div class="card">
             <h3>Artefakte</h3>
-            <ul>
-              <li>Logdateien und strukturierte Migrationsberichte</li>
-              <li>Modul-Inventare mit Versions- und Migrationsstatus</li>
+            <ul class="compact">
+              <li>Logs, Migrationsberichte, Modul-Inventare</li>
               <li>Agenten-Instruktionen für Folgearbeiten</li>
             </ul>
           </div>
-          <div class="card">
-            <h3>Betrieblicher Nutzen</h3>
-            <ul>
+          <div class="column">
+            <h3>Qualitätssicherung</h3>
+            <ul class="compact">
               <li>Nachweis ausgeführter Schritte im Code Review</li>
-              <li>Weniger Rückfragen zwischen Projekten</li>
-              <li>Grundlage für spätere Prozessverbesserungen</li>
+              <li>Testläufe an mehreren internen Nuxt-3-Repositories</li>
+              <li>Nicht nur Happy Path — unterschiedliche Modul-Komplexität</li>
             </ul>
           </div>
         </div>
@@ -396,20 +383,14 @@
     </section>
 
     <!-- Slide 14: Abnahme -->
-    <section class="slide" data-note="Zur Abnahme: Die Hauptziele aus dem Pflichtenheft sind erreicht — CLI, Modul-Workflow, Validierung und Agenten-Anbindung in angepasster Form.&#10;&#10;Im Soll-Ist-Vergleich fällt vor allem die Agenten-Integration auf: angepasst, nicht aufgegeben. Der geplante Zeitrahmen von 80 Stunden wurde eingehalten; der Risikopuffer hat die Architekturanpassung aufgenommen, ohne das Projektergebnis zu gefährden.&#10;&#10;Mein Projektbetreuer hat das Werkzeug nach Testläufen an realitätsnahen Nuxt-3-Repositories abgenommen. In seiner Rückmeldung hob er besonders die geführte CLI und die Nachvollziehbarkeit der Migrationsschritte hervor." data-agenda="4">
+    <section class="slide slide--abnahme" data-note="Zur Abnahme: Die Kernziele aus dem Pflichtenheft sind erreicht — CLI, Modul-Workflow, Validierung und Agenten-Anbindung in angepasster Form.&#10;&#10;Im Soll-Ist-Vergleich fällt die Agenten-Integration auf: flexibel statt fester API — angepasst, nicht aufgegeben. Keine unkontrollierte Vollautomatisierung blieb planungskonform. Der geplante Zeitrahmen von 80 Stunden wurde eingehalten; der Risikopuffer hat die Architekturanpassung aufgenommen.&#10;&#10;Mein Projektbetreuer hat das Werkzeug nach Testläufen an realitätsnahen Nuxt-3-Repositories abgenommen. In seiner Rückmeldung hob er besonders die geführte CLI und die Nachvollziehbarkeit der Migrationsschritte hervor.&#10;&#10;Badges auf der Folie: erreicht = Soll erfüllt, angepasst &amp; erreicht = Pivot mit Zielerreichung, planungskonform = Abgrenzung eingehalten." data-agenda="4">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Abnahme &amp; Soll-Ist-Vergleich</h2>
       </header>
       <div class="slide-body">
-<p class="lead">Abnahme durch Projektbetreuer nach Testläufen an realitätsnahen Nuxt-3-Repositories</p>
-        <ul>
-          <li>Funktionale Tests aller Workflows: CLI, Module, Artefakte, Validierung</li>
-          <li>Formale Abnahme und fachliches Feedback durch den <strong>Projektbetreuer</strong></li>
-          <li>Keine grundlegenden Zielabweichungen — eine geplante Anpassung bei der Agenten-Anbindung</li>
-          <li>Zeitaufwand <strong>80 Stunden</strong> wie geplant — Risikopuffer für Agenten-Pivot genutzt</li>
-        </ul>
-        <table>
+        <p class="lead">Formale Abnahme durch Projektbetreuer — Kernziele erreicht, <strong>80 Stunden</strong> wie geplant</p>
+        <table class="table--compact table--abnahme">
           <thead><tr><th>Bereich</th><th>Soll-Ist</th></tr></thead>
           <tbody>
             <tr><td>CLI-Werkzeug zur Nuxt-Migration</td><td><span class="badge badge--ok">erreicht</span></td></tr>
@@ -424,35 +405,32 @@
     </section>
 
     <!-- Slide 15: Fazit -->
-    <section class="slide" data-note="Zusammenfassend standardisiert nuxt4-upgrade wiederkehrende Migrationsschritte und reduziert manuellen Rechercheaufwand. Es ersetzt bewusst keine fachliche Prüfung — der Entwickler bleibt verantwortlich.&#10;&#10;Aus Lessons Learned: Frühe Tests an echten Repositories sparen späte Korrekturen. Die modulare Architektur lässt sich für künftige Nuxt-Versionen erweitern; perspektivisch ist ein npm-Paket im Unternehmen denkbar.&#10;&#10;Das Projekt zeigt, wie betriebliche Abläufe durch ein schlankes CLI-Werkzeug verbessert werden können, ohne die Kontrolle an eine Black Box abzugeben." data-agenda="5">
+    <section class="slide slide--fazit" data-note="Zusammenfassend standardisiert nuxt4-upgrade wiederkehrende Migrationsschritte und reduziert manuellen Rechercheaufwand. Es ersetzt bewusst keine fachliche Prüfung — der Entwickler bleibt verantwortlich.&#10;&#10;Aus Lessons Learned: Automatisierung ersetzt keine fachliche Modulprüfung. Präzises Prompt Engineering entscheidet über den Nutzen von Agenten. Frühe Tests an echten Repositories sparen späte Korrekturen.&#10;&#10;Ausblick: Weitere Modulregeln und Validierungsschritte, Übertragbarkeit auf spätere Nuxt-Versionen, Bereitstellung als npm-Paket im Unternehmen und Einsatz in weiteren Kundenprojekten nach Pilotphase.&#10;&#10;Das Projekt zeigt, wie betriebliche Abläufe durch ein schlankes CLI-Werkzeug verbessert werden können, ohne die Kontrolle an eine Black Box abzugeben." data-agenda="5">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Fazit, Lessons Learned &amp; Ausblick</h2>
       </header>
       <div class="slide-body">
-        <p class="lead">Reflexion: Ergebnisse, Erkenntnisse und weiterer Ausblick</p>
+        <p class="lead">Standardisierung ohne Kontrollverlust — erweiterbar für künftige Nuxt-Versionen</p>
         <div class="columns">
           <div class="column">
             <h3>Ergebnis</h3>
-            <ul>
-              <li>Standardisierte Migrationsunterstützung mit voller Entwicklerkontrolle</li>
-              <li>Einsparung von Recherchezeit und einheitlicher Prozess im Unternehmen</li>
-              <li>Erweiterbare Modularchitektur für künftige Nuxt-Versionen</li>
+            <ul class="compact">
+              <li>Geführter Migrationsprozess mit voller Entwicklerkontrolle</li>
+              <li>Weniger Rechercheaufwand, einheitlicher Ablauf im Team</li>
             </ul>
             <h3>Lessons Learned</h3>
-            <ul>
-              <li>Automatisierung ersetzt keine fachliche Prüfung bei Modulen</li>
-              <li>Präzises Prompt Engineering entscheidet über Agenten-Nutzen</li>
+            <ul class="compact">
+              <li>Automatisierung ersetzt keine fachliche Modulprüfung</li>
               <li>Frühe Tests an echten Repositories sparen späte Korrekturen</li>
             </ul>
           </div>
           <div class="column">
             <h3>Ausblick</h3>
-            <ul>
-              <li>Weitere Modulregeln und zusätzliche Validierungsschritte</li>
+            <ul class="compact">
+              <li>Weitere Modulregeln und Validierungsschritte</li>
               <li>Übertragbar auf spätere Nuxt-Versionen</li>
-              <li>Bereitstellung als eigenständiges npm-Paket im Unternehmen</li>
-              <li>Einsatz in weiteren Kundenprojekten nach erfolgreicher Pilotphase</li>
+              <li>Bereitstellung als npm-Paket im Unternehmen</li>
             </ul>
           </div>
         </div>

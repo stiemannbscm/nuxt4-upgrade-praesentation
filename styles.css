@@ -407,6 +407,112 @@ code {
   line-height: 1.38;
 }
 
+/* Shared compact content slides */
+.slide--umfeld .slide-body,
+.slide--anlass .slide-body {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.slide--umfeld .lead,
+.slide--anlass .lead {
+  margin-bottom: 16px;
+}
+
+.slide--umfeld ul.compact li,
+.slide--anlass ul.compact li {
+  margin-bottom: 10px;
+  line-height: 1.38;
+}
+
+.slide--impl .split__text ul.compact li {
+  margin-bottom: 12px;
+  line-height: 1.38;
+}
+
+/* Slide 13: QS */
+.slide--qs .slide-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.slide--qs .lead {
+  margin-bottom: 16px;
+}
+
+.slide--qs .columns {
+  align-items: start;
+}
+
+.slide--qs .column h3 {
+  margin-bottom: 8px;
+}
+
+.slide--qs .column h3 + ul.compact {
+  margin-bottom: 16px;
+}
+
+.slide--qs .column ul.compact li {
+  margin-bottom: 8px;
+  line-height: 1.38;
+}
+
+/* Slide 14: Abnahme */
+.slide--abnahme .slide-body {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.slide--abnahme .lead {
+  margin-bottom: 18px;
+}
+
+.slide--abnahme .table--abnahme {
+  font-size: 34px;
+}
+
+.slide--abnahme .table--abnahme th,
+.slide--abnahme .table--abnahme td {
+  padding: 10px 16px;
+  vertical-align: middle;
+}
+
+.slide--abnahme .table--abnahme td:last-child {
+  width: 32%;
+  white-space: nowrap;
+}
+
+/* Slide 15: Fazit */
+.slide--fazit .slide-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.slide--fazit .lead {
+  margin-bottom: 16px;
+}
+
+.slide--fazit .columns {
+  align-items: start;
+}
+
+.slide--fazit .column h3 {
+  margin-bottom: 8px;
+}
+
+.slide--fazit .column h3 + ul.compact {
+  margin-bottom: 16px;
+}
+
+.slide--fazit .column ul.compact li {
+  margin-bottom: 8px;
+  line-height: 1.38;
+}
+
 .timing {
   margin-top: 24px;
   padding: 18px 22px;
