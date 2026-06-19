@@ -283,7 +283,7 @@
     </section>
 
     <!-- Slide 10: Architektur -->
-    <section class="slide slide--split slide--architektur" data-note="Schichten von oben: CLI, Analyse, orchestrierte Nuxt-Tools, Modul-Workflow, Artefakte, optional Agenten. CLI-UI mit @clack/prompts — Alternativen auf der Folie. TypeScript/Node.js, stateless." data-agenda="2">
+    <section class="slide slide--split slide--architektur" data-note="Schichten von oben: CLI, Analyse, orchestrierte Nuxt-Tools, Modul-Workflow, Artefakte, optional Agenten. TypeScript/Node.js, stateless. Keine eigene Migrations-Engine." data-agenda="2">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Architektur &amp; Technologie</h2>
@@ -292,16 +292,7 @@
         <div class="split__text">
           <p class="lead">Modularer Schichtenaufbau — offizielle Nuxt-Tools bleiben die technische Basis</p>
           <ul class="compact">
-            <li><strong>Stack:</strong> TypeScript, Node.js — stateless, keine Datenbank</li>
-            <li><strong>CLI-UI:</strong> <code>@clack/prompts</code> — klare UX, wenig Boilerplate</li>
-          </ul>
-          <ul class="compact alternatives-list">
-            <li class="alternatives-list__heading"><strong>Alternativen zu @clack/prompts</strong></li>
-            <li><code>@inquirer/prompts</code> — etablierter Standard, größere Community, mehr Konfiguration</li>
-            <li><code>prompts</code> — leichtgewichtig, ähnliche Prompt-API</li>
-            <li><code>enquirer</code> — performant, flexiblere Terminal-Eingaben</li>
-          </ul>
-          <ul class="compact">
+            <li><strong>Stack:</strong> TypeScript, Node.js, <code>@clack/prompts</code> — stateless, keine Datenbank</li>
             <li><strong>Fünf Bausteine:</strong> CLI · Projektanalyse · Modul-Workflow · Artefakte · Agenten</li>
             <li><strong>Drei Workflows:</strong> Kernframework · offizielle Module · kombiniert</li>
             <li>Nuxt-Kommandos (<code>nuxi upgrade</code>, Typecheck, Build) werden <strong>orchestriert</strong>, nicht ersetzt</li>
