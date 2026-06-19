@@ -337,7 +337,7 @@
     </section>
 
     <!-- Slide 11: Implementierung CLI -->
-    <section class="slide slide--split slide--impl" data-note="Hier der Kern der Implementierung: die geführte CLI. Der Entwickler startet nuxt4-upgrade im Projektverzeichnis und durchläuft die Schritte interaktiv.&#10;&#10;Der Ablauf im Detail: Projektpfad wählen und Zielprojekt validieren. Vorprüfung von package.json, Nuxt-Abhängigkeit und Package Manager. Workflow auswählen — Kern, Module oder kombiniert. Vor jedem kritischen Eingriff — Codemods, Konfigurationsänderungen — erfolgt eine explizite Bestätigung. Anschließend Upgrade-Schritte ausführen, protokollieren und validieren.&#10;&#10;Die Projektanalyse erkennt Nuxt-Version, Module und Package Manager — npm, pnpm, yarn oder bun. Wo sinnvoll setzt das Tool future.compatibilityVersion auf 4 zur schrittweisen Vorbereitung.&#10;&#10;Vertrauen entsteht durch Transparenz, nicht durch Blindautomatisierung — das war eine zentrale Designentscheidung. Im Screenshot sehen Sie einen echten Testlauf mit Projektanalyse." data-agenda="3">
+    <section class="slide slide--split slide--impl slide--cli" data-note="Hier der Kern der Implementierung: die geführte CLI. Der Entwickler startet nuxt4-upgrade im Projektverzeichnis und durchläuft die Schritte interaktiv.&#10;&#10;Der Ablauf im Detail: Projektpfad wählen und Zielprojekt validieren. Vorprüfung von package.json, Nuxt-Abhängigkeit und Package Manager. Workflow auswählen — Kern, Module oder kombiniert. Vor jedem kritischen Eingriff — Codemods, Konfigurationsänderungen — erfolgt eine explizite Bestätigung. Anschließend Upgrade-Schritte ausführen, protokollieren und validieren.&#10;&#10;Die Projektanalyse erkennt Nuxt-Version, Module und Package Manager — npm, pnpm, yarn oder bun. Wo sinnvoll setzt das Tool future.compatibilityVersion auf 4 zur schrittweisen Vorbereitung.&#10;&#10;Vertrauen entsteht durch Transparenz, nicht durch Blindautomatisierung — das war eine zentrale Designentscheidung. Im Screenshot sehen Sie einen echten Testlauf mit Projektanalyse." data-agenda="3">
       <header class="slide-header">
         <div class="slide-logos slide-logos--split"><img src="assets/logo-basecom.png" alt="basecom" class="logo logo--basecom"><img src="assets/logo-grow.png" alt="grow" class="logo logo--grow"></div>
         <h2>Implementierung: CLI &amp; Projektanalyse</h2>
@@ -352,7 +352,7 @@
             <li>Optional: <code>future.compatibilityVersion = 4</code> zur schrittweisen V4-Vorbereitung</li>
           </ul>
         </div>
-        <figure class="split__image">
+        <figure class="split__image split__image--screenshot">
           <img src="assets/cli-projektanalyse.png" alt="Terminal-Screenshot: nuxt4-upgrade Projektanalyse">
         </figure>
       </div>
