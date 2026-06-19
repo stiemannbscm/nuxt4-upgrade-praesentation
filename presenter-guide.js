@@ -30,9 +30,9 @@ window.PRESENTER_GUIDE = {
   4: {
     glossary: [
       { term: "EOL (End of Life)", desc: "Ende des offiziellen Supports — für Nuxt 3 zum 31.07.2026; danach keine Sicherheitsupdates mehr." },
-      { term: "Nuxt 3 / Nuxt 4", desc: "Versionen des Nuxt-Frameworks; Nuxt 4 bringt Breaking Changes und neue Projektstrukturen." },
-      { term: "Modul-Inventar", desc: "Liste aller eingesetzten Nuxt-Module mit Version und Migrationsstatus." },
-      { term: "Release Notes", desc: "Offizielle Änderungsdokumentation einer Software-Version." }
+      { term: "Rein manuelle Migration", desc: "Jeder Schritt wird per Hand ausgeführt — Recherche, Anpassung, Validierung ohne geführten Standard." },
+      { term: "Prompting", desc: "Formulierung von Anweisungen an Coding-Agenten — ohne Standard entstehen unterschiedliche Ergebnisse." },
+      { term: "Modul-Inventar", desc: "Liste aller eingesetzten Nuxt-Module mit Version und Migrationsstatus." }
     ]
   },
   5: {
