@@ -661,27 +661,29 @@ tbody tr.total td {
 }
 
 .slide--wirtschaft .calc-layout {
-  flex: 1;
-  align-content: start;
-  height: auto;
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+.slide--wirtschaft .table--fit .col-vorgang { width: 58%; }
+.slide--wirtschaft .table--fit .col-zeit { width: 12%; }
+.slide--wirtschaft .table--fit .col-satz { width: 15%; }
+.slide--wirtschaft .table--fit .col-kosten { width: 15%; }
+.slide--wirtschaft .table--fit .col-position { width: 72%; }
+.slide--wirtschaft .table--fit .col-wert { width: 28%; }
+
+.slide--wirtschaft .calc-column {
+  min-width: 0;
+  width: 100%;
 }
 
 .slide--wirtschaft .table--fit {
   table-layout: fixed;
   width: 100%;
   max-width: 100%;
-}
-
-.slide--wirtschaft .table--fit .col-vorgang { width: 54%; }
-.slide--wirtschaft .table--fit .col-zeit { width: 14%; }
-.slide--wirtschaft .table--fit .col-satz { width: 16%; }
-.slide--wirtschaft .table--fit .col-kosten { width: 16%; }
-.slide--wirtschaft .table--fit .col-position { width: 68%; }
-.slide--wirtschaft .table--fit .col-wert { width: 32%; }
-
-.slide--wirtschaft .calc-column {
-  min-width: 0;
 }
 
 .slide--wirtschaft .calc-column h3 {
@@ -710,21 +712,21 @@ tbody tr.total td {
 
 .slide--wirtschaft .calc-formula {
   font-size: 34px;
-  margin-top: 12px;
-  padding: 14px 18px;
+  margin-top: 10px;
+  padding: 12px 18px;
   white-space: nowrap;
   overflow: hidden;
 }
 
 .wirtschaft-footer {
-  margin-top: auto;
-  padding-top: 20px;
+  margin-top: 16px;
+  padding-top: 0;
   font-size: 40px;
   line-height: 1.35;
   color: var(--bc-navy);
   font-weight: 500;
   align-self: flex-start;
-  max-width: 92%;
+  max-width: 100%;
 }
 
 .calc-layout {
